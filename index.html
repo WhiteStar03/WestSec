@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WestSec — Cybersecurity & Web Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c0f;
+    --bg2: #0f1215;
+    --bg3: #141720;
+    --bg4: #1a1e28;
+    --surface: #1e2330;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --accent: #3b82f6;
+    --accent2: #60a5fa;
+    --accent-dim: rgba(59,130,246,0.12);
+    --accent-dim2: rgba(59,130,246,0.06);
+    --red-col: #ef4444;
+    --red-dim: rgba(239,68,68,0.1);
+    --red-border: rgba(239,68,68,0.2);
+    --text: #f0f2f7;
+    --text2: #9aa3b8;
+    --text3: #5e6880;
+    --green: #10b981;
+    --green-dim: rgba(16,185,129,0.1);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245,158,11,0.1);
+    --radius: 10px;
+    --radius-lg: 16px;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* LANG */
+  .lang-ro [data-en], .lang-en [data-ro] { display: none !important; }
+  .lang-ro [data-ro], .lang-en [data-en] { display: revert; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 64px;
+    background: rgba(10,12,15,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-head); font-size: 1.35rem; font-weight: 800;
+    letter-spacing: -0.02em; color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo span {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--accent); border-radius: 50%; margin-bottom: 2px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.875rem; color: var(--text2); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+  .btn-lang {
+    background: var(--surface); border: 1px solid var(--border2);
+    color: var(--text2); font-family: var(--font-body); font-size: 0.8rem;
+    font-weight: 500; letter-spacing: 0.06em; padding: 5px 14px;
+    border-radius: 6px; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-lang:hover { background: var(--bg4); color: var(--text); }
+  .btn-cta-nav {
+    background: var(--accent); color: #fff; font-family: var(--font-body);
+    font-size: 0.85rem; font-weight: 500; padding: 8px 20px;
+    border-radius: 7px; border: none; cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-cta-nav:hover { opacity: 0.88; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; text-align: center;
+    padding: 7rem 2rem 4rem; position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+    top: 40%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 60px 60px; pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 45%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 45%, black 0%, transparent 100%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-dim); border: 1px solid rgba(59,130,246,0.2);
+    padding: 6px 16px; border-radius: 100px; font-size: 0.8rem;
+    font-weight: 500; color: var(--accent2); letter-spacing: 0.04em;
+    margin-bottom: 2rem; position: relative;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; background: var(--accent2);
+    border-radius: 50%; animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.4; transform:scale(0.75); }
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+    line-height: 1.08; letter-spacing: -0.03em;
+    max-width: 820px; margin-bottom: 1.4rem; position: relative;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent2); }
+  .hero > p {
+    font-size: 1.05rem; color: var(--text2); max-width: 540px;
+    line-height: 1.75; margin-bottom: 2.25rem; position: relative; font-weight: 300;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    position: relative; margin-bottom: 3.5rem;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff; padding: 13px 30px; border-radius: 9px;
+    font-weight: 500; font-size: 0.95rem; transition: opacity 0.2s, transform 0.15s;
+    border: none; cursor: pointer; font-family: var(--font-body); display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--text2); padding: 13px 28px; border-radius: 9px;
+    font-weight: 400; font-size: 0.95rem; border: 1px solid var(--border2);
+    transition: all 0.2s; cursor: pointer; font-family: var(--font-body); display: inline-block;
+  }
+  .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.2); background: var(--surface); }
+
+  /* HERO SERVICES LIST */
+  .hero-services {
+    width: 100%; max-width: 900px; position: relative;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .hero-svc-col { background: var(--bg2); padding: 1.5rem 1.5rem 1.75rem; }
+  .hero-svc-col:hover { background: var(--bg3); }
+  .hero-svc-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-svc-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+  .dot-blue { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,0.5); }
+  .dot-amber { background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.5); }
+  .hero-svc-title {
+    font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .title-red { color: #f87171; }
+  .title-blue { color: var(--accent2); }
+  .title-amber { color: #fbbf24; }
+  .hero-svc-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .hero-svc-items li {
+    font-size: 0.82rem; color: var(--text2); font-weight: 300;
+    padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; align-items: center; gap: 8px; line-height: 1.4;
+  }
+  .hero-svc-items li:last-child { border-bottom: none; }
+  .hero-svc-items li::before {
+    content: ''; width: 4px; height: 4px; border-radius: 50%;
+    flex-shrink: 0; background: var(--text3);
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent2); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: var(--font-head); font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--text2); max-width: 560px; font-size: 1rem;
+    line-height: 1.75; font-weight: 300; margin-bottom: 3.5rem;
+  }
+
+  /* SERVICES */
+  #servicii { background: var(--bg); }
+  .services-group { margin-bottom: 4rem; }
+  .group-title {
+    font-family: var(--font-head); font-size: 1.05rem; font-weight: 600;
+    color: var(--text); letter-spacing: -0.01em;
+    margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .group-pill {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+  }
+  .pill-red { background: var(--red-dim); color: #f87171; border: 1px solid var(--red-border); }
+  .pill-blue { background: var(--accent-dim); color: var(--accent2); border: 1px solid rgba(59,130,246,0.2); }
+  .pill-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .service-card { background: var(--bg2); padding: 1.75rem; transition: background 0.2s; }
+  .service-card:hover { background: var(--bg3); }
+  .service-icon {
+    width: 40px; height: 40px; background: var(--accent-dim2);
+    border: 1px solid var(--border); border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; font-size: 1.15rem;
+  }
+  .service-card h3 {
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .service-card p { font-size: 0.875rem; color: var(--text2); line-height: 1.65; font-weight: 300; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+  .tag {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em;
+    padding: 3px 10px; border-radius: 100px; text-transform: uppercase;
+  }
+  .tag-blue { background: var(--accent-dim); color: var(--accent2); border: 1px solid rgba(59,130,246,0.2); }
+  .tag-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+  .tag-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  .tag-red { background: var(--red-dim); color: #f87171; border: 1px solid var(--red-border); }
+
+  /* METHODOLOGY */
+  #metodologie { background: var(--bg2); }
+  .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .method-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 2rem; position: relative;
+  }
+  .method-num {
+    font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
+    color: rgba(255,255,255,0.04); position: absolute; top: 1rem; right: 1.5rem;
+    line-height: 1; letter-spacing: -0.04em;
+  }
+  .method-card h3 {
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    margin-bottom: 0.6rem; letter-spacing: -0.01em;
+  }
+  .method-card p { font-size: 0.875rem; color: var(--text2); font-weight: 300; line-height: 1.65; }
+
+  /* PRICING */
+  #preturi { background: var(--bg); }
+  .pricing-note {
+    background: var(--bg3); border: 1px solid rgba(245,158,11,0.2);
+    border-radius: var(--radius); padding: 1rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 2.5rem; font-size: 0.88rem; color: var(--text2); line-height: 1.65;
+  }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem; margin-bottom: 2rem;
+  }
+  .price-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.75rem;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .price-card:hover { border-color: var(--border2); background: var(--bg3); }
+  .price-card.featured { border-color: rgba(59,130,246,0.35); background: var(--bg3); position: relative; }
+  .featured-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 14px; border-radius: 100px; white-space: nowrap;
+  }
+  .price-service {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text3); margin-bottom: 0.4rem;
+  }
+  .price-name {
+    font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 0.5rem;
+  }
+  .price-range {
+    font-family: var(--font-head); font-size: 1.55rem; font-weight: 700;
+    letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: 0.25rem;
+  }
+  .price-range span { color: var(--accent2); }
+  .price-from { font-size: 0.78rem; color: var(--text3); margin-bottom: 1.25rem; }
+  .price-divider { height: 1px; background: var(--border); margin: 1rem 0; }
+  .price-includes { list-style: none; flex: 1; }
+  .price-includes li {
+    font-size: 0.82rem; color: var(--text2); padding: 4px 0;
+    display: flex; align-items: flex-start; gap: 8px; font-weight: 300;
+  }
+  .price-includes li::before {
+    content: '✓'; color: var(--green); font-weight: 600; font-size: 0.75rem;
+    margin-top: 3px; flex-shrink: 0;
+  }
+  .price-scope {
+    margin-top: 1.25rem; font-size: 0.75rem; color: var(--text3);
+    padding: 8px 12px; background: rgba(255,255,255,0.03);
+    border-radius: 6px; border: 1px solid var(--border); line-height: 1.5;
+  }
+
+  /* SCOPE FACTORS */
+  .scope-factors {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 2rem; margin-top: 2.5rem;
+  }
+  .scope-title {
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    margin-bottom: 1.25rem; color: var(--text); letter-spacing: -0.01em;
+  }
+  .scope-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .scope-item { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+  .scope-item .s-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .scope-item .s-label { font-size: 0.82rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+  .scope-item .s-desc { font-size: 0.76rem; color: var(--text3); line-height: 1.5; }
+
+  /* WEB DEV */
+  #webdev { background: var(--bg2); }
+  .webdev-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .webdev-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.75rem; transition: border-color 0.2s;
+  }
+  .webdev-card:hover { border-color: var(--border2); }
+  .webdev-card h3 {
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .webdev-card p { font-size: 0.875rem; color: var(--text2); font-weight: 300; line-height: 1.65; margin-bottom: 1rem; }
+  .webdev-price { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .webdev-price span { color: var(--green); }
+
+  /* CONTACT */
+  #contact { background: var(--bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info p { font-size: 0.95rem; color: var(--text2); font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
+  .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text2); }
+  .contact-item .ci-icon {
+    width: 36px; height: 36px; background: var(--accent-dim);
+    border: 1px solid rgba(59,130,246,0.2); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 0.95rem;
+  }
+  .contact-form { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text2); letter-spacing: 0.02em; }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--bg3); border: 1px solid var(--border2);
+    border-radius: 8px; padding: 10px 14px; color: var(--text);
+    font-family: var(--font-body); font-size: 0.9rem; outline: none;
+    transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form-group select option { background: var(--bg3); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; background: var(--accent); color: #fff; padding: 12px; border: none;
+    border-radius: 8px; font-family: var(--font-head); font-size: 0.95rem;
+    font-weight: 600; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.01em;
+  }
+  .form-submit:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2rem; }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+  .footer-copy { font-size: 0.8rem; color: var(--text3); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { font-size: 0.8rem; color: var(--text3); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text2); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .hero-services { grid-template-columns: 1fr; }
+    .hero-svc-col { border-bottom: 1px solid var(--border); }
+    .hero-svc-col:last-child { border-bottom: none; }
+    .method-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .method-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 1rem; }
+    .footer-links { display: none; }
+    section { padding: 4rem 1.25rem; }
+  }
+</style>
+</head>
+<body class="lang-ro">
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span></span>WestSec</a>
+  <ul class="nav-links">
+    <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
+    <li><a href="#metodologie" data-ro>Metodologie</a><a href="#metodologie" data-en>Methodology</a></li>
+    <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
+    <li><a href="#webdev">Web Dev</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-lang" onclick="toggleLang()">EN / RO</button>
+    <a href="#contact" class="btn-cta-nav">
+      <span data-ro>Solicită ofertă</span>
+      <span data-en>Get a quote</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-badge" data-ro>Securitate cibernetică · Timișoara, România</div>
+  <div class="hero-badge" data-en>Cybersecurity · Timișoara, Romania</div>
+
+  <h1 data-ro>Testăm sistemele tale<br />înainte să o facă <em>hackerii</em></h1>
+  <h1 data-en>We test your systems<br />before the <em>hackers</em> do</h1>
+
+  <p data-ro>Atac, apărare și monitorizare — servicii reale pentru firme care vor să știe unde sunt vulnerabile, nu doar să bifeze o căsuță.</p>
+  <p data-en>Offense, defense and monitoring — real services for companies that want to know where they're vulnerable, not just check a box.</p>
+
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">
+      <span data-ro>Solicită o evaluare gratuită</span>
+      <span data-en>Request a free assessment</span>
+    </a>
+    <a href="#servicii" class="btn-secondary">
+      <span data-ro>Vezi toate serviciile</span>
+      <span data-en>Explore services</span>
+    </a>
+  </div>
+
+  <!-- Services overview grid -->
+  <div class="hero-services">
+
+    <div class="hero-svc-col">
+      <div class="hero-svc-header">
+        <span class="hero-svc-dot dot-red"></span>
+        <span class="hero-svc-title title-red" data-ro>🗡 Red Team / Atac</span>
+        <span class="hero-svc-title title-red" data-en>🗡 Red Team / Offense</span>
+      </div>
+      <ul class="hero-svc-items" data-ro>
+        <li>Pentest aplicații web</li>
+        <li>Pentest aplicații mobile</li>
+        <li>Pentest rețea internă & externă</li>
+        <li>Securitate Active Directory</li>
+        <li>Securitate Wi-Fi (on-site)</li>
+        <li>Code review (sursă)</li>
+        <li>Black box / Grey box / White box</li>
+      </ul>
+      <ul class="hero-svc-items" data-en>
+        <li>Web application pentest</li>
+        <li>Mobile application pentest</li>
+        <li>Internal & external network pentest</li>
+        <li>Active Directory security</li>
+        <li>Wi-Fi security (on-site)</li>
+        <li>Source code review</li>
+        <li>Black box / Grey box / White box</li>
+      </ul>
+    </div>
+
+    <div class="hero-svc-col">
+      <div class="hero-svc-header">
+        <span class="hero-svc-dot dot-blue"></span>
+        <span class="hero-svc-title title-blue" data-ro>🛡 Blue Team / Apărare</span>
+        <span class="hero-svc-title title-blue" data-en>🛡 Blue Team / Defense</span>
+      </div>
+      <ul class="hero-svc-items" data-ro>
+        <li>Hardening servere & rețele</li>
+        <li>Audit configurații firewall</li>
+        <li>Revizuire politici de acces & parole</li>
+        <li>Răspuns la incidente (IR)</li>
+        <li>Simulări phishing & training angajați</li>
+        <li>Rapoarte detaliate + remediere ghidată</li>
+      </ul>
+      <ul class="hero-svc-items" data-en>
+        <li>Server & network hardening</li>
+        <li>Firewall configuration audit</li>
+        <li>Access policies & password review</li>
+        <li>Incident response (IR)</li>
+        <li>Phishing simulations & employee training</li>
+        <li>Detailed reports + guided remediation</li>
+      </ul>
+    </div>
+
+    <div class="hero-svc-col">
+      <div class="hero-svc-header">
+        <span class="hero-svc-dot dot-amber"></span>
+        <span class="hero-svc-title title-amber" data-ro>👁 Monitorizare & Web Dev</span>
+        <span class="hero-svc-title title-amber" data-en>👁 Monitoring & Web Dev</span>
+      </div>
+      <ul class="hero-svc-items" data-ro>
+        <li>SOC managed — monitorizare 24/7</li>
+        <li>Detecție anomalii & alerte în timp real</li>
+        <li>SIEM managed (log-uri, corelații)</li>
+        <li>Threat intelligence basic</li>
+        <li>Website prezentare / e-commerce</li>
+        <li>Aplicații web & SaaS custom</li>
+      </ul>
+      <ul class="hero-svc-items" data-en>
+        <li>Managed SOC — 24/7 monitoring</li>
+        <li>Anomaly detection & real-time alerts</li>
+        <li>Managed SIEM (logs, correlations)</li>
+        <li>Basic threat intelligence</li>
+        <li>Presentation sites / e-commerce</li>
+        <li>Custom web apps & SaaS</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES DETAIL -->
+<section id="servicii">
+  <div class="container">
+    <p class="section-label" data-ro>Ce facem concret</p>
+    <p class="section-label" data-en>What we actually do</p>
+    <h2 class="section-title" data-ro>Servicii de securitate cibernetică</h2>
+    <h2 class="section-title" data-en>Cybersecurity services</h2>
+    <p class="section-sub" data-ro>Nu vândem rapoarte automate generate în 10 minute. Fiecare evaluare e muncă manuală reală — găsim ce un scanner nu găsește.</p>
+    <p class="section-sub" data-en>We don't sell auto-generated reports done in 10 minutes. Every assessment is real manual work — we find what a scanner won't.</p>
+
+    <!-- Red Team -->
+    <div class="services-group">
+      <div class="group-title">
+        <span data-ro>Atac controlat</span>
+        <span data-en>Controlled offense</span>
+        <span class="group-pill pill-red">Red Team</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌍</div>
+          <h3 data-ro>Pentest Aplicații Web</h3>
+          <h3 data-en>Web Application Pentest</h3>
+          <p data-ro>Atacăm controlat portalurile, magazinele online sau platformele interne. SQL injection, XSS, IDOR, broken auth, business logic — tot ce un hacker real ar căuta.</p>
+          <p data-en>We controlled-attack portals, online stores or internal platforms. SQL injection, XSS, IDOR, broken auth, business logic — everything a real hacker would look for.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">Black Box</span>
+            <span class="tag tag-amber">Grey Box</span>
+            <span class="tag tag-blue">API testing</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3 data-ro>Pentest Aplicații Mobile</h3>
+          <h3 data-en>Mobile Application Pentest</h3>
+          <p data-ro>iOS și Android: stocare nesigură, trafic interceptabil, bypass biometrie, reverse engineering APK/IPA. Ce se întâmplă dacă un telefon e pierdut sau furat.</p>
+          <p data-en>iOS and Android: insecure storage, interceptable traffic, biometric bypass, APK/IPA reverse engineering. What happens if a phone is lost or stolen.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">iOS</span>
+            <span class="tag tag-red">Android</span>
+            <span class="tag tag-amber">Static + Dynamic</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔌</div>
+          <h3 data-ro>Pentest Rețea Internă & Externă</h3>
+          <h3 data-en>Internal & External Network Pentest</h3>
+          <p data-ro>Verificăm dacă cineva din parcare sau de pe internet poate intra în rețeaua voastră. Servere, firewall-uri, porturi deschise, servicii expuse.</p>
+          <p data-en>We check if someone from the parking lot or the internet can get into your network. Servers, firewalls, open ports, exposed services.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">External</span>
+            <span class="tag tag-amber">Internal</span>
+            <span class="tag tag-blue">Lateral movement</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏛️</div>
+          <h3 data-ro>Securitate Active Directory</h3>
+          <h3 data-en>Active Directory Security</h3>
+          <p data-ro>Cel mai ignorat punct critic. Testăm escaladare privilegii, Kerberoasting, Pass-the-Hash, BloodHound paths — scenariul în care un cont de angajat preia tot domeniul.</p>
+          <p data-en>The most overlooked critical point. We test privilege escalation, Kerberoasting, Pass-the-Hash, BloodHound paths — the scenario where one employee account takes over the whole domain.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">Domain takeover</span>
+            <span class="tag tag-amber">Grey Box</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📡</div>
+          <h3 data-ro>Securitate Wi-Fi</h3>
+          <h3 data-en>Wi-Fi Security</h3>
+          <p data-ro>Testăm on-site: WPA cracking, evil twin, rogue AP, izolare rețea guest. Dacă cineva conectat la Wi-Fi poate ajunge la servere sau date interne.</p>
+          <p data-en>On-site testing: WPA cracking, evil twin, rogue AP, guest network isolation. Whether someone on Wi-Fi can reach servers or internal data.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">On-site</span>
+            <span class="tag tag-amber">Fizic / Physical</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3 data-ro>Code Review</h3>
+          <h3 data-en>Code Review</h3>
+          <p data-ro>Citim codul sursă manual. Găsim vulnerabilități de logică, criptografie slabă, secrets hardcodate, injection points — direct din rădăcină, înainte de lansare.</p>
+          <p data-en>We read the source code manually. We find logic vulnerabilities, weak cryptography, hardcoded secrets, injection points — straight at the root, before launch.</p>
+          <div class="tag-row">
+            <span class="tag tag-blue">White Box</span>
+            <span class="tag tag-green">SAST</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blue Team -->
+    <div class="services-group">
+      <div class="group-title">
+        <span data-ro>Apărare & întărire</span>
+        <span data-en>Defense & hardening</span>
+        <span class="group-pill pill-blue">Blue Team</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3 data-ro>Hardening Servere & Rețele</h3>
+          <h3 data-en>Server & Network Hardening</h3>
+          <p data-ro>Închidem ce nu trebuie să fie deschis. Revizuim configurații OS, servicii, firewall-uri și politici de acces pentru a reduce suprafața de atac.</p>
+          <p data-en>We close what shouldn't be open. We review OS configurations, services, firewalls and access policies to reduce the attack surface.</p>
+          <div class="tag-row">
+            <span class="tag tag-blue">Linux</span>
+            <span class="tag tag-blue">Windows</span>
+            <span class="tag tag-green">Firewall</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎣</div>
+          <h3 data-ro>Simulări Phishing & Training</h3>
+          <h3 data-en>Phishing Simulations & Training</h3>
+          <p data-ro>Trimitem email-uri capcană simulate — vedem câți angajați dau click, câți cedează credențiale. Raport per persoană și sesiune de awareness după.</p>
+          <p data-en>We send simulated trap emails — we see how many employees click, how many give up credentials. Per-person report and an awareness session after.</p>
+          <div class="tag-row">
+            <span class="tag tag-blue">Social Engineering</span>
+            <span class="tag tag-green">Training</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚨</div>
+          <h3 data-ro>Răspuns la Incidente (IR)</h3>
+          <h3 data-en>Incident Response (IR)</h3>
+          <p data-ro>Dacă ceva s-a întâmplat deja — intruziune, ransomware, date scurse — intrăm și investigăm: ce a intrat, cum, ce a atins, ce trebuie izolat.</p>
+          <p data-en>If something already happened — intrusion, ransomware, data leak — we come in and investigate: what got in, how, what it touched, what needs to be isolated.</p>
+          <div class="tag-row">
+            <span class="tag tag-red">Urgent</span>
+            <span class="tag tag-blue">Forensics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monitoring -->
+    <div class="services-group">
+      <div class="group-title">
+        <span data-ro>Monitorizare continuă</span>
+        <span data-en>Continuous monitoring</span>
+        <span class="group-pill pill-amber">SOC</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">👁️</div>
+          <h3 data-ro>SOC Managed — 24/7</h3>
+          <h3 data-en>Managed SOC — 24/7</h3>
+          <p data-ro>Monitorizăm evenimentele de securitate din infrastructura voastră non-stop. Detecție anomalii, corelare log-uri, alertare și răspuns rapid când ceva se mișcă.</p>
+          <p data-en>We monitor security events from your infrastructure non-stop. Anomaly detection, log correlation, alerting and fast response when something moves.</p>
+          <div class="tag-row">
+            <span class="tag tag-amber">24/7</span>
+            <span class="tag tag-green">SIEM</span>
+            <span class="tag tag-blue">Alerting</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 data-ro>Threat Intelligence & Raportare</h3>
+          <h3 data-en>Threat Intelligence & Reporting</h3>
+          <p data-ro>Urmărim dacă datele sau credențialele companiei voastre au apărut pe dark web sau în breach-uri publice. Raportare lunară clară, fără jargon inutil.</p>
+          <p data-en>We track whether your company's data or credentials have appeared on the dark web or in public breaches. Clear monthly reporting, no unnecessary jargon.</p>
+          <div class="tag-row">
+            <span class="tag tag-amber">Dark Web</span>
+            <span class="tag tag-green">Monthly report</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="metodologie">
+  <div class="container">
+    <p class="section-label" data-ro>Cum lucrăm</p>
+    <p class="section-label" data-en>How we work</p>
+    <h2 class="section-title" data-ro>Metodologie clară, fără surprize</h2>
+    <h2 class="section-title" data-en>Clear methodology, no surprises</h2>
+    <p class="section-sub" data-ro>Fiecare angajament urmează același proces: scoping, execuție, raport tehnic + executiv, re-test după remediere. Știți exact ce se întâmplă la fiecare pas.</p>
+    <p class="section-sub" data-en>Every engagement follows the same process: scoping, execution, technical + executive report, re-test after remediation. You know exactly what happens at each step.</p>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <h3 data-ro>Black Box</h3>
+        <h3 data-en>Black Box</h3>
+        <p data-ro>Intrăm fără nicio informație prealabilă despre sisteme — exact cum ar face un atacator real de pe internet. Cel mai realist scenariu.</p>
+        <p data-en>We go in with zero prior information about the systems — exactly as a real attacker from the internet would. The most realistic scenario.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <h3 data-ro>Grey Box</h3>
+        <h3 data-en>Grey Box</h3>
+        <p data-ro>Testăm cu credențiale de utilizator normal sau informații parțiale. Ideal pentru scenariul angajat compromis sau cont spart.</p>
+        <p data-en>We test with normal user credentials or partial information. Ideal for the compromised employee or hacked account scenario.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <h3 data-ro>White Box</h3>
+        <h3 data-en>White Box</h3>
+        <p data-ro>Acces complet la cod sursă, arhitectură, documentație. Cel mai eficient pentru code review și audit profund înainte de lansare.</p>
+        <p data-en>Full access to source code, architecture, documentation. Most efficient for code review and deep audit before launch.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <h3 data-ro>Scoping gratuit</h3>
+        <h3 data-en>Free scoping</h3>
+        <p data-ro>Înainte de orice ofertă, discutăm ce aveți, ce vreți să testăm și cât de adânc. Fără presiune, fără angajament.</p>
+        <p data-en>Before any quote, we talk about what you have, what you want tested and how deep. No pressure, no commitment.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">05</div>
+        <h3 data-ro>Execuție & documentare</h3>
+        <h3 data-en>Execution & documentation</h3>
+        <p data-ro>Testare manuală cu proof-of-concept pentru fiecare vulnerabilitate găsită. Nu liste automate de CVE-uri.</p>
+        <p data-en>Manual testing with proof-of-concept for every vulnerability found. Not automated CVE lists.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">06</div>
+        <h3 data-ro>Raport + re-test inclus</h3>
+        <h3 data-en>Report + re-test included</h3>
+        <p data-ro>Raport executiv (ce risc, ce impact) + tehnic (cum să repari). Re-testare gratuită după ce ați remediat.</p>
+        <p data-en>Executive report (what risk, what impact) + technical (how to fix). Free re-test after you've remediated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="preturi">
+  <div class="container">
+    <p class="section-label" data-ro>Tarife orientative</p>
+    <p class="section-label" data-en>Indicative pricing</p>
+    <h2 class="section-title" data-ro>Prețuri transparente</h2>
+    <h2 class="section-title" data-en>Transparent pricing</h2>
+    <p class="section-sub" data-ro>Prețurile sunt estimative — costul real depinde de cât de mare și complex e ce testăm. Dăm ofertă fixă după scoping, fără surprize.</p>
+    <p class="section-sub" data-en>Prices are estimates — the real cost depends on how large and complex what we're testing is. We give a fixed quote after scoping, no surprises.</p>
+
+    <div class="pricing-note">
+      <span style="font-size:1rem;margin-top:2px;flex-shrink:0">⚠️</span>
+      <span data-ro><strong>Prețul crește sau scade în funcție de:</strong> numărul de sisteme / aplicații testate, complexitatea arhitecturii, dacă e nevoie de prezență fizică on-site, metodologia aleasă (black/grey/white box) și urgența livrării. Oferta finală o dăm după o discuție de 15–30 min.</span>
+      <span data-en><strong>Price goes up or down based on:</strong> number of systems / applications tested, architecture complexity, whether physical on-site presence is needed, chosen methodology (black/grey/white box) and delivery urgency. We give the final quote after a 15–30 min chat.</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Aplicații web</div>
+          <div class="price-service" data-en>Web applications</div>
+          <div class="price-name" data-ro>Pentest Web</div>
+          <div class="price-name" data-en>Web Pentest</div>
+          <div class="price-range">€800 <span>–</span> €4.500</div>
+          <div class="price-from" data-ro>per evaluare · în funcție de scop</div>
+          <div class="price-from" data-en>per assessment · scope dependent</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>OWASP Top 10 + business logic</li>
+          <li data-en>OWASP Top 10 + business logic</li>
+          <li data-ro>Testare manuală, nu doar scanare</li>
+          <li data-en>Manual testing, not just scanning</li>
+          <li data-ro>Raport executiv + tehnic</li>
+          <li data-en>Executive + technical report</li>
+          <li data-ro>Re-test remedieri inclus</li>
+          <li data-en>Remediation re-test included</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: SaaS complex, API extensiv, autentificări multiple, >50 endpoint-uri</div>
+        <div class="price-scope" data-en>↑ Higher: complex SaaS, extensive API, multiple auth flows, >50 endpoints</div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge" data-ro>Cel mai solicitat</div>
+        <div class="featured-badge" data-en>Most requested</div>
+        <div class="price-card-head" style="margin-top:0.75rem">
+          <div class="price-service" data-ro>Rețea & infrastructură</div>
+          <div class="price-service" data-en>Network & infrastructure</div>
+          <div class="price-name" data-ro>Pentest Rețea</div>
+          <div class="price-name" data-en>Network Pentest</div>
+          <div class="price-range">€1.200 <span>–</span> €6.000</div>
+          <div class="price-from" data-ro>intern + extern · per evaluare</div>
+          <div class="price-from" data-en>internal + external · per assessment</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Scanare & exploatare rețea internă</li>
+          <li data-en>Internal network scanning & exploitation</li>
+          <li data-ro>Perimetru extern (servere, firewall)</li>
+          <li data-en>External perimeter (servers, firewall)</li>
+          <li data-ro>Active Directory assessment inclus</li>
+          <li data-en>Active Directory assessment included</li>
+          <li data-ro>Raport prioritizat pe risc real</li>
+          <li data-en>Report prioritised by real risk</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: rețele mari (100+ device-uri), AD complex, prezență fizică necesară</div>
+        <div class="price-scope" data-en>↑ Higher: large networks (100+ devices), complex AD, physical presence required</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Aplicații mobile</div>
+          <div class="price-service" data-en>Mobile applications</div>
+          <div class="price-name" data-ro>Pentest Mobile</div>
+          <div class="price-name" data-en>Mobile Pentest</div>
+          <div class="price-range">€900 <span>–</span> €3.500</div>
+          <div class="price-from" data-ro>per platformă (iOS sau Android)</div>
+          <div class="price-from" data-en>per platform (iOS or Android)</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Static + dynamic analysis</li>
+          <li data-en>Static + dynamic analysis</li>
+          <li data-ro>Reverse engineering APK/IPA</li>
+          <li data-en>APK/IPA reverse engineering</li>
+          <li data-ro>Testare stocare locală & trafic</li>
+          <li data-en>Local storage & traffic testing</li>
+          <li data-ro>API backend inclus</li>
+          <li data-en>Backend API included</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: backend complex, funcționalități financiare, ambele platforme</div>
+        <div class="price-scope" data-en>↑ Higher: complex backend, financial features, both platforms</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Wireless — on-site</div>
+          <div class="price-service" data-en>Wireless — on-site</div>
+          <div class="price-name" data-ro>Securitate Wi-Fi</div>
+          <div class="price-name" data-en>Wi-Fi Security</div>
+          <div class="price-range">€400 <span>–</span> €1.500</div>
+          <div class="price-from" data-ro>per locație · deplasare inclusă local</div>
+          <div class="price-from" data-en>per location · local travel included</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>WPA2/3 cracking simulation</li>
+          <li data-en>WPA2/3 cracking simulation</li>
+          <li data-ro>Evil twin / rogue AP</li>
+          <li data-en>Evil twin / rogue AP</li>
+          <li data-ro>Izolare rețea guest & corp</li>
+          <li data-en>Guest & corp network isolation</li>
+          <li data-ro>Raport cu recomandări practice</li>
+          <li data-en>Report with practical recommendations</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: clădiri mari, multiple locații, deplasare în altă localitate</div>
+        <div class="price-scope" data-en>↑ Higher: large buildings, multiple locations, travel to another city</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Cod sursă</div>
+          <div class="price-service" data-en>Source code</div>
+          <div class="price-name" data-ro>Code Review</div>
+          <div class="price-name" data-en>Code Review</div>
+          <div class="price-range">€600 <span>–</span> €3.000</div>
+          <div class="price-from" data-ro>per proiect · în funcție de linii de cod</div>
+          <div class="price-from" data-en>per project · based on lines of code</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Revizuire manuală + tooling SAST</li>
+          <li data-en>Manual review + SAST tooling</li>
+          <li data-ro>Logică, criptografie, config greșite</li>
+          <li data-en>Logic, cryptography, misconfigurations</li>
+          <li data-ro>Secrets hardcodate, injection points</li>
+          <li data-en>Hardcoded secrets, injection points</li>
+          <li data-ro>Raport cu linii exacte de cod</li>
+          <li data-en>Report with exact code lines</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: >50K LOC, limbaje multiple, arhitectură microservicii</div>
+        <div class="price-scope" data-en>↑ Higher: >50K LOC, multiple languages, microservices architecture</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Monitorizare & factorul uman</div>
+          <div class="price-service" data-en>Monitoring & human factor</div>
+          <div class="price-name" data-ro>SOC + Phishing</div>
+          <div class="price-name" data-en>SOC + Phishing</div>
+          <div class="price-range">€300 <span>–</span> €800<span style="font-size:1.1rem">/lună</span></div>
+          <div class="price-from" data-ro>simulare unică sau abonament lunar</div>
+          <div class="price-from" data-en>one-time simulation or monthly retainer</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Campanii phishing simulate complet</li>
+          <li data-en>Fully simulated phishing campaigns</li>
+          <li data-ro>Statistici detaliate per angajat</li>
+          <li data-en>Detailed per-employee statistics</li>
+          <li data-ro>SOC: monitorizare SIEM 24/7</li>
+          <li data-en>SOC: 24/7 SIEM monitoring</li>
+          <li data-ro>Alertare incidente în timp real</li>
+          <li data-en>Real-time incident alerting</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: >100 angajați, SIEM custom, SLA garantat sub 1h</div>
+        <div class="price-scope" data-en>↑ Higher: >100 employees, custom SIEM, guaranteed SLA under 1h</div>
+      </div>
+    </div>
+
+    <div class="scope-factors">
+      <div class="scope-title" data-ro>📊 Ce influențează prețul final</div>
+      <div class="scope-title" data-en>📊 What influences the final price</div>
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="s-icon">📐</div>
+          <div class="s-label" data-ro>Dimensiunea scopului</div>
+          <div class="s-label" data-en>Scope size</div>
+          <div class="s-desc" data-ro>Mai multe sisteme sau aplicații = mai mult timp = preț mai mare</div>
+          <div class="s-desc" data-en>More systems or applications = more time = higher price</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">⚙️</div>
+          <div class="s-label" data-ro>Complexitate tehnică</div>
+          <div class="s-label" data-en>Technical complexity</div>
+          <div class="s-desc" data-ro>SSO, microservicii, arhitecturi hibride cresc efortul real</div>
+          <div class="s-desc" data-en>SSO, microservices, hybrid architectures increase real effort</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🏢</div>
+          <div class="s-label" data-ro>Prezență fizică</div>
+          <div class="s-label" data-en>Physical presence</div>
+          <div class="s-desc" data-ro>Wi-Fi, social engineering on-site, audit fizic al clădirii</div>
+          <div class="s-desc" data-en>Wi-Fi, on-site social engineering, physical building audit</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🔲</div>
+          <div class="s-label" data-ro>Metodologie</div>
+          <div class="s-label" data-en>Methodology</div>
+          <div class="s-desc" data-ro>Black box ia mai mult timp decât white box — reconnaissance din zero</div>
+          <div class="s-desc" data-en>Black box takes longer than white box — reconnaissance from scratch</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">⏱️</div>
+          <div class="s-label" data-ro>Urgență</div>
+          <div class="s-label" data-en>Urgency</div>
+          <div class="s-desc" data-ro>Livrare în sub 1 săptămână poate implica un tarif suplimentar</div>
+          <div class="s-desc" data-en>Delivery under 1 week may incur an additional fee</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🔄</div>
+          <div class="s-label" data-ro>Abonament / retainer</div>
+          <div class="s-label" data-en>Retainer / subscription</div>
+          <div class="s-desc" data-ro>Testare recurentă sau SOC lunar — reduceri pentru parteneriate lungi</div>
+          <div class="s-desc" data-en>Recurring testing or monthly SOC — discounts for long-term partnerships</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEB DEV -->
+<section id="webdev">
+  <div class="container">
+    <p class="section-label" data-ro>Servicii complementare</p>
+    <p class="section-label" data-en>Complementary services</p>
+    <h2 class="section-title" data-ro>Dezvoltare Web</h2>
+    <h2 class="section-title" data-en>Web Development</h2>
+    <p class="section-sub" data-ro>Construim site-uri și aplicații web moderne, cu securitate integrată din start — nu adăugată pe urmă. Ideal dacă vreți și securitate și dezvoltare de la același loc.</p>
+    <p class="section-sub" data-en>We build modern websites and web apps with security baked in from the start — not bolted on later. Ideal if you want both security and development from the same place.</p>
+
+    <div class="webdev-grid">
+      <div class="webdev-card">
+        <div class="service-icon">🖥️</div>
+        <h3 data-ro>Website Prezentare</h3>
+        <h3 data-en>Presentation Website</h3>
+        <p data-ro>Design modern, responsive, rapid. Cu CMS sau static, optimizat pentru viteză. Livrat în 1–3 săptămâni.</p>
+        <p data-en>Modern, responsive, fast design. With CMS or static, speed optimised. Delivered in 1–3 weeks.</p>
+        <div class="webdev-price"><span>€400</span> – €1.500</div>
+        <div class="tag-row" style="margin-top:0.75rem">
+          <span class="tag tag-green">Next.js / React</span>
+          <span class="tag tag-blue">SEO</span>
+          <span class="tag tag-amber">CMS</span>
+        </div>
+      </div>
+      <div class="webdev-card">
+        <div class="service-icon">🛒</div>
+        <h3 data-ro>Magazin Online</h3>
+        <h3 data-en>Online Store</h3>
+        <p data-ro>Platformă completă cu coș, plăți (Stripe, PayU), gestionare produse și dashboard admin. Securizat și rapid.</p>
+        <p data-en>Full platform with cart, payments (Stripe, PayU), product management and admin dashboard. Secure and fast.</p>
+        <div class="webdev-price"><span>€1.500</span> – €5.000</div>
+        <div class="tag-row" style="margin-top:0.75rem">
+          <span class="tag tag-green">Full-stack</span>
+          <span class="tag tag-blue">Payments</span>
+        </div>
+      </div>
+      <div class="webdev-card">
+        <div class="service-icon">⚡</div>
+        <h3 data-ro>Aplicație Web / SaaS Custom</h3>
+        <h3 data-en>Custom Web App / SaaS</h3>
+        <p data-ro>Platforme cu autentificare, roluri, API, dashboard-uri și integrări. Arhitectură scalabilă, securizată din cod.</p>
+        <p data-en>Platforms with auth, roles, API, dashboards and integrations. Scalable architecture, secured from the code up.</p>
+        <div class="webdev-price"><span>€3.000</span> – €15.000+</div>
+        <div class="tag-row" style="margin-top:0.75rem">
+          <span class="tag tag-green">API</span>
+          <span class="tag tag-blue">Auth</span>
+          <span class="tag tag-amber">Scalable</span>
+        </div>
+      </div>
+      <div class="webdev-card">
+        <div class="service-icon">🔧</div>
+        <h3 data-ro>Mentenanță & Suport</h3>
+        <h3 data-en>Maintenance & Support</h3>
+        <p data-ro>Actualizări, monitoring uptime, backup automat, patch-uri de securitate. Abonament lunar fără bătăi de cap.</p>
+        <p data-en>Updates, uptime monitoring, automatic backup, security patches. Monthly subscription without the headache.</p>
+        <div class="webdev-price"><span>€80</span> – €300<span style="font-size:1rem;color:var(--text2)">/lună</span></div>
+        <div class="tag-row" style="margin-top:0.75rem">
+          <span class="tag tag-green">Monitoring</span>
+          <span class="tag tag-blue">Updates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" data-ro>Luați legătura</p>
+    <p class="section-label" data-en>Get in touch</p>
+    <h2 class="section-title" data-ro>Solicită o evaluare gratuită</h2>
+    <h2 class="section-title" data-en>Request a free assessment</h2>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p data-ro>Înainte de orice ofertă, discutăm 15–30 de minute despre ce aveți, ce vreți să testăm și care e bugetul aproximativ. Fără obligații, fără sales pitch.</p>
+        <p data-en>Before any quote, we have a 15–30 minute chat about what you have, what you want tested and what the rough budget is. No obligation, no sales pitch.</p>
+
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <span>contact@westsec.ro</span>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <span data-ro>Timișoara, România</span>
+          <span data-en>Timișoara, Romania</span>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🔒</div>
+          <span data-ro>Toate discuțiile sunt confidențiale — NDA disponibil la cerere</span>
+          <span data-en>All discussions are confidential — NDA available on request</span>
+        </div>
+
+        <div style="margin-top:2rem; padding:1.5rem; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg);">
+          <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.6rem;" data-ro>Răspundem în</div>
+          <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.6rem;" data-en>We respond within</div>
+          <div style="font-family:var(--font-head);font-size:2.2rem;font-weight:700;letter-spacing:-0.03em;color:var(--accent2);">24h</div>
+          <div style="font-size:0.82rem;color:var(--text3);margin-top:0.2rem;" data-ro>lucrătoare de la primirea mesajului</div>
+          <div style="font-size:0.82rem;color:var(--text3);margin-top:0.2rem;" data-en>business hours from receiving your message</div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-ro>Nume</label>
+            <label data-en>Name</label>
+            <input type="text" placeholder="Ion Popescu" />
+          </div>
+          <div class="form-group">
+            <label data-ro>Companie</label>
+            <label data-en>Company</label>
+            <input type="text" placeholder="Firma S.R.L." />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="ion@firma.ro" />
+        </div>
+        <div class="form-group">
+          <label data-ro>Serviciu de interes</label>
+          <label data-en>Service of interest</label>
+          <select>
+            <option value="" data-ro>Selectează...</option>
+            <option value="" data-en>Select...</option>
+            <option data-ro>Pentest Aplicație Web</option>
+            <option data-en>Web Application Pentest</option>
+            <option data-ro>Pentest Rețea / Infrastructură</option>
+            <option data-en>Network / Infrastructure Pentest</option>
+            <option data-ro>Securitate Active Directory</option>
+            <option data-en>Active Directory Security</option>
+            <option data-ro>Pentest Aplicație Mobile</option>
+            <option data-en>Mobile Application Pentest</option>
+            <option data-ro>Code Review</option>
+            <option data-en>Code Review</option>
+            <option data-ro>Securitate Wi-Fi (On-site)</option>
+            <option data-en>Wi-Fi Security (On-site)</option>
+            <option data-ro>Simulări Phishing</option>
+            <option data-en>Phishing Simulations</option>
+            <option data-ro>SOC Managed</option>
+            <option data-en>Managed SOC</option>
+            <option data-ro>Hardening & Blue Team</option>
+            <option data-en>Hardening & Blue Team</option>
+            <option data-ro>Răspuns la Incidente</option>
+            <option data-en>Incident Response</option>
+            <option data-ro>Dezvoltare Web</option>
+            <option data-en>Web Development</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-ro>Descriere scurtă</label>
+          <label data-en>Brief description</label>
+          <textarea data-ro-ph="Ce sisteme sau aplicații vreți să testăm? Orice detaliu ajută." data-en-ph="What systems or applications do you want tested? Any detail helps."></textarea>
+        </div>
+        <button class="form-submit" data-ro>Trimite mesajul →</button>
+        <button class="form-submit" data-en>Send message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">WestSec<span style="color:var(--accent)">.</span></div>
+    <div class="footer-copy" data-ro>© 2025 WestSec. Toate drepturile rezervate.</div>
+    <div class="footer-copy" data-en>© 2025 WestSec. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
+      <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const isRo = body.classList.contains('lang-ro');
+    body.classList.toggle('lang-ro', !isRo);
+    body.classList.toggle('lang-en', isRo);
+    document.documentElement.lang = isRo ? 'en' : 'ro';
+    document.title = isRo
+      ? 'WestSec — Cybersecurity & Web Development'
+      : 'WestSec — Securitate Cibernetică & Dezvoltare Web';
+    updatePlaceholders();
+  }
+
+  function updatePlaceholders() {
+    const isEn = document.body.classList.contains('lang-en');
+    document.querySelectorAll('[data-ro-ph]').forEach(el => {
+      el.placeholder = isEn ? el.dataset.enPh : el.dataset.roPh;
+    });
+  }
+
+  updatePlaceholders();
+</script>
+</body>
+</html>
