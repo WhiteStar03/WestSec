@@ -96,7 +96,7 @@
     min-height: 100vh;
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; text-align: center;
-    padding: 7rem 2rem 4rem; position: relative; overflow: hidden;
+    padding: 5.5rem 2rem 3rem; position: relative; overflow: hidden;
   }
   .hero-glow {
     position: absolute; width: 700px; height: 700px;
@@ -117,7 +117,7 @@
     background: var(--accent-dim); border: 1px solid rgba(59,130,246,0.2);
     padding: 6px 16px; border-radius: 100px; font-size: 0.8rem;
     font-weight: 500; color: var(--accent2); letter-spacing: 0.04em;
-    margin-bottom: 2rem; position: relative;
+    margin-bottom: 1.25rem; position: relative;
   }
   .hero-badge::before {
     content: ''; width: 6px; height: 6px; background: var(--accent2);
@@ -129,18 +129,18 @@
   }
   .hero h1 {
     font-family: var(--font-head);
-    font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 4.35rem); font-weight: 800;
     line-height: 1.08; letter-spacing: -0.03em;
-    max-width: 820px; margin-bottom: 1.4rem; position: relative;
+    max-width: 860px; margin-bottom: 1rem; position: relative;
   }
   .hero h1 em { font-style: normal; color: var(--accent2); }
   .hero > p {
     font-size: 1.05rem; color: var(--text2); max-width: 540px;
-    line-height: 1.75; margin-bottom: 2.25rem; position: relative; font-weight: 300;
+    line-height: 1.75; margin-bottom: 1.5rem; position: relative; font-weight: 300;
   }
   .hero-actions {
     display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-    position: relative; margin-bottom: 3.5rem;
+    position: relative; margin-bottom: 2rem;
   }
   .btn-primary {
     background: var(--accent); color: #fff; padding: 13px 30px; border-radius: 9px;
@@ -157,18 +157,19 @@
 
   /* HERO SERVICES LIST */
   .hero-services {
-    width: 100%; max-width: 900px; position: relative;
+    width: 100%; max-width: 1180px; position: relative;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
     background: var(--border);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border2);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(59,130,246,0.08);
   }
-  .hero-svc-col { background: var(--bg2); padding: 1.5rem 1.5rem 1.75rem; }
+  .hero-svc-col { background: rgba(15,18,21,0.96); padding: 2rem 2rem 2.15rem; text-align: left; }
   .hero-svc-col:hover { background: var(--bg3); }
   .hero-svc-header {
     display: flex; align-items: center; gap: 10px;
-    margin-bottom: 1rem; padding-bottom: 0.75rem;
+    margin-bottom: 1.15rem; padding-bottom: 0.85rem;
     border-bottom: 1px solid var(--border);
   }
   .hero-svc-dot {
@@ -178,7 +179,7 @@
   .dot-blue { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,0.5); }
   .dot-amber { background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.5); }
   .hero-svc-title {
-    font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+    font-family: var(--font-head); font-size: 0.9rem; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
   }
   .title-red { color: #f87171; }
@@ -186,14 +187,38 @@
   .title-amber { color: #fbbf24; }
   .hero-svc-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
   .hero-svc-items li {
-    font-size: 0.82rem; color: var(--text2); font-weight: 300;
-    padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.95rem; color: var(--text2); font-weight: 300;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
     display: flex; align-items: center; gap: 8px; line-height: 1.4;
   }
   .hero-svc-items li:last-child { border-bottom: none; }
   .hero-svc-items li::before {
     content: ''; width: 4px; height: 4px; border-radius: 50%;
     flex-shrink: 0; background: var(--text3);
+  }
+  .hero-price-strip {
+    width: 100%; max-width: 1180px; position: relative;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    margin-top: 1px; overflow: hidden; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    background: var(--border); border: 1px solid var(--border2); border-top: 0;
+    text-align: left;
+  }
+  .hero-price-item {
+    background: rgba(20,23,32,0.96); padding: 1.15rem 1.35rem;
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .hero-price-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text3);
+  }
+  .hero-price-value {
+    font-family: var(--font-head); font-size: 1.35rem; font-weight: 800;
+    letter-spacing: -0.03em; color: var(--text);
+  }
+  .hero-price-value span { color: var(--accent2); }
+  .hero-price-link {
+    color: var(--accent2); justify-content: center; align-items: center;
+    font-weight: 700; font-size: 0.95rem; text-align: center;
   }
 
   /* SECTION COMMON */
@@ -408,6 +433,7 @@
   /* MOBILE */
   @media (max-width: 900px) {
     .hero-services { grid-template-columns: 1fr; }
+    .hero-price-strip { grid-template-columns: 1fr 1fr; border-radius: var(--radius-lg); margin-top: 1rem; }
     .hero-svc-col { border-bottom: 1px solid var(--border); }
     .hero-svc-col:last-child { border-bottom: none; }
     .method-grid { grid-template-columns: 1fr 1fr; }
@@ -421,6 +447,10 @@
     .footer-inner { flex-direction: column; gap: 1rem; }
     .footer-links { display: none; }
     section { padding: 4rem 1.25rem; }
+    .hero { padding: 5rem 1rem 2rem; }
+    .hero-svc-col { padding: 1.35rem; }
+    .hero-svc-items li { font-size: 0.9rem; }
+    .hero-price-strip { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -467,6 +497,10 @@
     <a href="#servicii" class="btn-secondary">
       <span data-ro>Vezi toate serviciile</span>
       <span data-en>Explore services</span>
+    </a>
+    <a href="#preturi" class="btn-secondary">
+      <span data-ro>Vezi prețurile</span>
+      <span data-en>View pricing</span>
     </a>
   </div>
 
@@ -547,6 +581,28 @@
       </ul>
     </div>
 
+  </div>
+
+  <div class="hero-price-strip" aria-label="Price overview">
+    <div class="hero-price-item">
+      <div class="hero-price-label" data-ro>Pentest Web</div>
+      <div class="hero-price-label" data-en>Web Pentest</div>
+      <div class="hero-price-value">€800 <span>-</span> €4.500</div>
+    </div>
+    <div class="hero-price-item">
+      <div class="hero-price-label" data-ro>Pentest Rețea</div>
+      <div class="hero-price-label" data-en>Network Pentest</div>
+      <div class="hero-price-value">€1.200 <span>-</span> €6.000</div>
+    </div>
+    <div class="hero-price-item">
+      <div class="hero-price-label" data-ro>Mobile / Code Review</div>
+      <div class="hero-price-label" data-en>Mobile / Code Review</div>
+      <div class="hero-price-value">€600 <span>-</span> €3.500</div>
+    </div>
+    <a class="hero-price-item hero-price-link" href="#preturi">
+      <span data-ro>Toate tarifele</span>
+      <span data-en>All pricing</span>
+    </a>
   </div>
 </section>
 
