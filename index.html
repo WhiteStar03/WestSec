@@ -309,7 +309,7 @@
     margin-bottom: 2.5rem; font-size: 0.88rem; color: var(--text2); line-height: 1.65;
   }
   .pricing-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.25rem; margin-bottom: 2rem;
   }
   .price-card {
@@ -340,10 +340,6 @@
   }
   .price-range span { color: var(--accent2); }
   .price-from { font-size: 0.78rem; color: var(--text3); margin-bottom: 1.25rem; }
-  .price-rate {
-    font-size: 0.78rem; color: var(--accent2); font-weight: 600;
-    margin-top: -0.8rem; margin-bottom: 1.1rem;
-  }
   .price-divider { height: 1px; background: var(--border); margin: 1rem 0; }
   .price-includes { list-style: none; flex: 1; }
   .price-includes li {
@@ -358,22 +354,6 @@
     margin-top: 1.25rem; font-size: 0.75rem; color: var(--text3);
     padding: 8px 12px; background: rgba(255,255,255,0.03);
     border-radius: 6px; border: 1px solid var(--border); line-height: 1.5;
-  }
-  .client-needs {
-    margin-top: 1rem; padding: 1rem; background: rgba(59,130,246,0.055);
-    border: 1px solid rgba(59,130,246,0.16); border-radius: 8px;
-  }
-  .client-needs-title {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent2); margin-bottom: 0.55rem;
-  }
-  .client-needs ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-  .client-needs li {
-    font-size: 0.76rem; color: var(--text2); line-height: 1.45;
-    display: flex; gap: 7px; align-items: flex-start;
-  }
-  .client-needs li::before {
-    content: '•'; color: var(--accent2); line-height: 1.35; flex-shrink: 0;
   }
 
   /* SCOPE FACTORS */
@@ -407,37 +387,6 @@
   .webdev-price { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
   .webdev-price span { color: var(--green); }
 
-  /* CONTACT */
-  #contact { background: var(--bg); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .contact-info p { font-size: 0.95rem; color: var(--text2); font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
-  .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text2); }
-  .contact-item .ci-icon {
-    width: 36px; height: 36px; background: var(--accent-dim);
-    border: 1px solid rgba(59,130,246,0.2); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 0.95rem;
-  }
-  .contact-form { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
-  .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text2); letter-spacing: 0.02em; }
-  .form-group input, .form-group select, .form-group textarea {
-    background: var(--bg3); border: 1px solid var(--border2);
-    border-radius: 8px; padding: 10px 14px; color: var(--text);
-    font-family: var(--font-body); font-size: 0.9rem; outline: none;
-    transition: border-color 0.2s; -webkit-appearance: none;
-  }
-  .form-group select option { background: var(--bg3); }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-submit {
-    width: 100%; background: var(--accent); color: #fff; padding: 12px; border: none;
-    border-radius: 8px; font-family: var(--font-head); font-size: 0.95rem;
-    font-weight: 600; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.01em;
-  }
-  .form-submit:hover { opacity: 0.88; }
-
   /* FOOTER */
   footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2rem; }
   .footer-inner {
@@ -462,8 +411,6 @@
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
     .method-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .form-row { grid-template-columns: 1fr; }
     .footer-inner { flex-direction: column; gap: 1rem; }
     .footer-links { display: none; }
     section { padding: 4rem 1.25rem; }
@@ -481,17 +428,12 @@
   <a class="nav-logo" href="#"><span></span>WestSec</a>
   <ul class="nav-links">
     <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
-    <li><a href="#metodologie" data-ro>Metodologie</a><a href="#metodologie" data-en>Methodology</a></li>
     <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
+    <li><a href="#metodologie" data-ro>Metodologie</a><a href="#metodologie" data-en>Methodology</a></li>
     <li><a href="#webdev">Web Dev</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <button class="btn-lang" onclick="toggleLang()">EN / RO</button>
-    <a href="#contact" class="btn-cta-nav">
-      <span data-ro>Solicită ofertă</span>
-      <span data-en>Get a quote</span>
-    </a>
   </div>
 </nav>
 
@@ -510,11 +452,7 @@
   <p data-en>Offense, defense and monitoring — real services for companies that want to know where they're vulnerable, not just check a box.</p>
 
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">
-      <span data-ro>Solicită o evaluare gratuită</span>
-      <span data-en>Request a free assessment</span>
-    </a>
-    <a href="#servicii" class="btn-secondary">
+    <a href="#servicii" class="btn-primary">
       <span data-ro>Vezi toate serviciile</span>
       <span data-en>Explore services</span>
     </a>
@@ -800,6 +738,227 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="preturi">
+  <div class="container">
+    <p class="section-label" data-ro>Tarife orientative</p>
+    <p class="section-label" data-en>Indicative pricing</p>
+    <h2 class="section-title" data-ro>Prețuri transparente</h2>
+    <h2 class="section-title" data-en>Transparent pricing</h2>
+    <p class="section-sub" data-ro>Prețurile sunt estimative și se calculează în funcție de scop, durată și numărul de persoane implicate. Reperul de calcul este €100/oră / persoană, iar oferta finală este fixă după scoping.</p>
+    <p class="section-sub" data-en>Prices are estimates and are calculated based on scope, duration and number of people involved. The reference rate is €100/hour / person, with a fixed final quote after scoping.</p>
+
+    <div class="pricing-note">
+      <span style="font-size:1rem;margin-top:2px;flex-shrink:0">⚠️</span>
+      <span data-ro><strong>Model de calcul:</strong> €100/oră / persoană, ajustat după scop, durată, acces disponibil, complexitate, prezență fizică on-site, metodologia aleasă (black/grey/white box) și urgența livrării. Oferta finală o dăm după o discuție de 15–30 min.</span>
+      <span data-en><strong>Pricing model:</strong> €100/hour / person, adjusted by scope, duration, available access, complexity, physical on-site work, selected methodology (black/grey/white box) and delivery urgency. We give the final quote after a 15–30 min chat.</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Aplicații web</div>
+          <div class="price-service" data-en>Web applications</div>
+          <div class="price-name" data-ro>Pentest Web</div>
+          <div class="price-name" data-en>Web Pentest</div>
+          <div class="price-range">€800 <span>–</span> €4.500</div>
+          <div class="price-from" data-ro>per evaluare · în funcție de scop</div>
+          <div class="price-from" data-en>per assessment · scope dependent</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>OWASP Top 10 + business logic</li>
+          <li data-en>OWASP Top 10 + business logic</li>
+          <li data-ro>Testare manuală, nu doar scanare</li>
+          <li data-en>Manual testing, not just scanning</li>
+          <li data-ro>Raport executiv + tehnic</li>
+          <li data-en>Executive + technical report</li>
+          <li data-ro>Re-test remedieri inclus</li>
+          <li data-en>Remediation re-test included</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: SaaS complex, API extensiv, autentificări multiple, >50 endpoint-uri</div>
+        <div class="price-scope" data-en>↑ Higher: complex SaaS, extensive API, multiple auth flows, >50 endpoints</div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge" data-ro>Cel mai solicitat</div>
+        <div class="featured-badge" data-en>Most requested</div>
+        <div class="price-card-head" style="margin-top:0.75rem">
+          <div class="price-service" data-ro>Rețea & infrastructură</div>
+          <div class="price-service" data-en>Network & infrastructure</div>
+          <div class="price-name" data-ro>Pentest Rețea</div>
+          <div class="price-name" data-en>Network Pentest</div>
+          <div class="price-range">€1.200 <span>–</span> €6.000</div>
+          <div class="price-from" data-ro>intern + extern · per evaluare</div>
+          <div class="price-from" data-en>internal + external · per assessment</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Scanare & exploatare rețea internă</li>
+          <li data-en>Internal network scanning & exploitation</li>
+          <li data-ro>Perimetru extern (servere, firewall)</li>
+          <li data-en>External perimeter (servers, firewall)</li>
+          <li data-ro>Active Directory assessment inclus</li>
+          <li data-en>Active Directory assessment included</li>
+          <li data-ro>Raport prioritizat pe risc real</li>
+          <li data-en>Report prioritised by real risk</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: rețele mari (100+ device-uri), AD complex, prezență fizică necesară</div>
+        <div class="price-scope" data-en>↑ Higher: large networks (100+ devices), complex AD, physical presence required</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Aplicații mobile</div>
+          <div class="price-service" data-en>Mobile applications</div>
+          <div class="price-name" data-ro>Pentest Mobile</div>
+          <div class="price-name" data-en>Mobile Pentest</div>
+          <div class="price-range">€900 <span>–</span> €3.500</div>
+          <div class="price-from" data-ro>per platformă (iOS sau Android)</div>
+          <div class="price-from" data-en>per platform (iOS or Android)</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Static + dynamic analysis</li>
+          <li data-en>Static + dynamic analysis</li>
+          <li data-ro>Reverse engineering APK/IPA</li>
+          <li data-en>APK/IPA reverse engineering</li>
+          <li data-ro>Testare stocare locală & trafic</li>
+          <li data-en>Local storage & traffic testing</li>
+          <li data-ro>API backend inclus</li>
+          <li data-en>Backend API included</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: backend complex, funcționalități financiare, ambele platforme</div>
+        <div class="price-scope" data-en>↑ Higher: complex backend, financial features, both platforms</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Wireless — on-site</div>
+          <div class="price-service" data-en>Wireless — on-site</div>
+          <div class="price-name" data-ro>Securitate Wi-Fi</div>
+          <div class="price-name" data-en>Wi-Fi Security</div>
+          <div class="price-range">€400 <span>–</span> €1.500</div>
+          <div class="price-from" data-ro>per locație · deplasare inclusă local</div>
+          <div class="price-from" data-en>per location · local travel included</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>WPA2/3 cracking simulation</li>
+          <li data-en>WPA2/3 cracking simulation</li>
+          <li data-ro>Evil twin / rogue AP</li>
+          <li data-en>Evil twin / rogue AP</li>
+          <li data-ro>Izolare rețea guest & corp</li>
+          <li data-en>Guest & corp network isolation</li>
+          <li data-ro>Raport cu recomandări practice</li>
+          <li data-en>Report with practical recommendations</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: clădiri mari, multiple locații, deplasare în altă localitate</div>
+        <div class="price-scope" data-en>↑ Higher: large buildings, multiple locations, travel to another city</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Cod sursă</div>
+          <div class="price-service" data-en>Source code</div>
+          <div class="price-name" data-ro>Code Review</div>
+          <div class="price-name" data-en>Code Review</div>
+          <div class="price-range">€600 <span>–</span> €3.000</div>
+          <div class="price-from" data-ro>per proiect · în funcție de linii de cod</div>
+          <div class="price-from" data-en>per project · based on lines of code</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Revizuire manuală + tooling SAST</li>
+          <li data-en>Manual review + SAST tooling</li>
+          <li data-ro>Logică, criptografie, config greșite</li>
+          <li data-en>Logic, cryptography, misconfigurations</li>
+          <li data-ro>Secrets hardcodate, injection points</li>
+          <li data-en>Hardcoded secrets, injection points</li>
+          <li data-ro>Raport cu linii exacte de cod</li>
+          <li data-en>Report with exact code lines</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: >50K LOC, limbaje multiple, arhitectură microservicii</div>
+        <div class="price-scope" data-en>↑ Higher: >50K LOC, multiple languages, microservices architecture</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Monitorizare & factorul uman</div>
+          <div class="price-service" data-en>Monitoring & human factor</div>
+          <div class="price-name" data-ro>SOC + Phishing</div>
+          <div class="price-name" data-en>SOC + Phishing</div>
+          <div class="price-range">€300 <span>–</span> €800<span style="font-size:1.1rem">/lună</span></div>
+          <div class="price-from" data-ro>simulare unică sau abonament lunar</div>
+          <div class="price-from" data-en>one-time simulation or monthly retainer</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Campanii phishing simulate complet</li>
+          <li data-en>Fully simulated phishing campaigns</li>
+          <li data-ro>Statistici detaliate per angajat</li>
+          <li data-en>Detailed per-employee statistics</li>
+          <li data-ro>SOC: monitorizare SIEM 24/7</li>
+          <li data-en>SOC: 24/7 SIEM monitoring</li>
+          <li data-ro>Alertare incidente în timp real</li>
+          <li data-en>Real-time incident alerting</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: >100 angajați, SIEM custom, SLA garantat sub 1h</div>
+        <div class="price-scope" data-en>↑ Higher: >100 employees, custom SIEM, guaranteed SLA under 1h</div>
+      </div>
+    </div>
+
+    <div class="scope-factors">
+      <div class="scope-title" data-ro>📊 Ce influențează prețul final</div>
+      <div class="scope-title" data-en>📊 What influences the final price</div>
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="s-icon">📐</div>
+          <div class="s-label" data-ro>Dimensiunea scopului</div>
+          <div class="s-label" data-en>Scope size</div>
+          <div class="s-desc" data-ro>Mai multe sisteme sau aplicații = mai mult timp = preț mai mare</div>
+          <div class="s-desc" data-en>More systems or applications = more time = higher price</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">⚙️</div>
+          <div class="s-label" data-ro>Complexitate tehnică</div>
+          <div class="s-label" data-en>Technical complexity</div>
+          <div class="s-desc" data-ro>SSO, microservicii, arhitecturi hibride cresc efortul real</div>
+          <div class="s-desc" data-en>SSO, microservices, hybrid architectures increase real effort</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🏢</div>
+          <div class="s-label" data-ro>Prezență fizică</div>
+          <div class="s-label" data-en>Physical presence</div>
+          <div class="s-desc" data-ro>Wi-Fi, social engineering on-site, audit fizic al clădirii</div>
+          <div class="s-desc" data-en>Wi-Fi, on-site social engineering, physical building audit</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🔲</div>
+          <div class="s-label" data-ro>Metodologie</div>
+          <div class="s-label" data-en>Methodology</div>
+          <div class="s-desc" data-ro>Black box ia mai mult timp decât white box — reconnaissance din zero</div>
+          <div class="s-desc" data-en>Black box takes longer than white box — reconnaissance from scratch</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">⏱️</div>
+          <div class="s-label" data-ro>Urgență</div>
+          <div class="s-label" data-en>Urgency</div>
+          <div class="s-desc" data-ro>Livrare în sub 1 săptămână poate implica un tarif suplimentar</div>
+          <div class="s-desc" data-en>Delivery under 1 week may incur an additional fee</div>
+        </div>
+        <div class="scope-item">
+          <div class="s-icon">🔄</div>
+          <div class="s-label" data-ro>Abonament / retainer</div>
+          <div class="s-label" data-en>Retainer / subscription</div>
+          <div class="s-desc" data-ro>Testare recurentă sau SOC lunar — reduceri pentru parteneriate lungi</div>
+          <div class="s-desc" data-en>Recurring testing or monthly SOC — discounts for long-term partnerships</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- METHODOLOGY -->
 <section id="metodologie">
   <div class="container">
@@ -852,341 +1011,6 @@
         <h3 data-en>Report + re-test included</h3>
         <p data-ro>Raport executiv (ce risc, ce impact) + tehnic (cum să repari). Re-testare gratuită după ce ați remediat.</p>
         <p data-en>Executive report (what risk, what impact) + technical (how to fix). Free re-test after you've remediated.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="preturi">
-  <div class="container">
-    <p class="section-label" data-ro>Tarife orientative</p>
-    <p class="section-label" data-en>Indicative pricing</p>
-    <h2 class="section-title" data-ro>Prețuri transparente</h2>
-    <h2 class="section-title" data-en>Transparent pricing</h2>
-    <p class="section-sub" data-ro>Prețurile sunt estimative și se calculează în funcție de scop, durată și numărul de persoane implicate. Reperul de calcul este €100/oră / persoană, iar oferta finală este fixă după scoping.</p>
-    <p class="section-sub" data-en>Prices are estimates and are calculated based on scope, duration and number of people involved. The reference rate is €100/hour / person, with a fixed final quote after scoping.</p>
-
-    <div class="pricing-note">
-      <span style="font-size:1rem;margin-top:2px;flex-shrink:0">⚠️</span>
-      <span data-ro><strong>Model de calcul:</strong> €100/oră / persoană, ajustat după scop, durată, acces disponibil, complexitate, prezență fizică on-site, metodologia aleasă (black/grey/white box) și urgența livrării. Oferta finală o dăm după o discuție de 15–30 min.</span>
-      <span data-en><strong>Pricing model:</strong> €100/hour / person, adjusted by scope, duration, available access, complexity, physical on-site work, selected methodology (black/grey/white box) and delivery urgency. We give the final quote after a 15–30 min chat.</span>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-card-head">
-          <div class="price-service" data-ro>Aplicații web</div>
-          <div class="price-service" data-en>Web applications</div>
-          <div class="price-name" data-ro>Pentest Web</div>
-          <div class="price-name" data-en>Web Pentest</div>
-          <div class="price-range">€800 <span>–</span> €4.500</div>
-          <div class="price-from" data-ro>per evaluare · în funcție de scop</div>
-          <div class="price-from" data-en>per assessment · scope dependent</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>OWASP Top 10 + business logic</li>
-          <li data-en>OWASP Top 10 + business logic</li>
-          <li data-ro>Testare manuală, nu doar scanare</li>
-          <li data-en>Manual testing, not just scanning</li>
-          <li data-ro>Raport executiv + tehnic</li>
-          <li data-en>Executive + technical report</li>
-          <li data-ro>Re-test remedieri inclus</li>
-          <li data-en>Remediation re-test included</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: SaaS complex, API extensiv, autentificări multiple, >50 endpoint-uri</div>
-        <div class="price-scope" data-en>↑ Higher: complex SaaS, extensive API, multiple auth flows, >50 endpoints</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Domenii, subdomenii, API-uri și endpoint-uri incluse explicit în scope</li>
-            <li>Conturi de test pentru rolurile relevante: user, admin, operator, client</li>
-            <li>Mediu de test sau acord scris pentru testare pe producție</li>
-            <li>Window de testare, persoane de contact și reguli pentru oprirea testelor</li>
-            <li>Documentație API, fluxuri business critice și limitări cunoscute</li>
-          </ul>
-          <ul data-en>
-            <li>Domains, subdomains, APIs and endpoints explicitly included in scope</li>
-            <li>Test accounts for relevant roles: user, admin, operator, customer</li>
-            <li>Staging environment or written approval for production testing</li>
-            <li>Testing window, contact people and rules for stopping tests</li>
-            <li>API documentation, critical business flows and known limitations</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="price-card featured">
-        <div class="featured-badge" data-ro>Cel mai solicitat</div>
-        <div class="featured-badge" data-en>Most requested</div>
-        <div class="price-card-head" style="margin-top:0.75rem">
-          <div class="price-service" data-ro>Rețea & infrastructură</div>
-          <div class="price-service" data-en>Network & infrastructure</div>
-          <div class="price-name" data-ro>Pentest Rețea</div>
-          <div class="price-name" data-en>Network Pentest</div>
-          <div class="price-range">€1.200 <span>–</span> €6.000</div>
-          <div class="price-from" data-ro>intern + extern · per evaluare</div>
-          <div class="price-from" data-en>internal + external · per assessment</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>Scanare & exploatare rețea internă</li>
-          <li data-en>Internal network scanning & exploitation</li>
-          <li data-ro>Perimetru extern (servere, firewall)</li>
-          <li data-en>External perimeter (servers, firewall)</li>
-          <li data-ro>Active Directory assessment inclus</li>
-          <li data-en>Active Directory assessment included</li>
-          <li data-ro>Raport prioritizat pe risc real</li>
-          <li data-en>Report prioritised by real risk</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: rețele mari (100+ device-uri), AD complex, prezență fizică necesară</div>
-        <div class="price-scope" data-en>↑ Higher: large networks (100+ devices), complex AD, physical presence required</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Lista IP-urilor publice, subneturilor interne și sistemelor excluse</li>
-            <li>Acces intern: VPN, jump box sau prezență fizică în sediu</li>
-            <li>Cont standard de domeniu pentru testare Active Directory grey box</li>
-            <li>Aprobări pentru scanare, exploatare controlată și testare lateral movement</li>
-            <li>Contact tehnic disponibil pentru blocaje, whitelist și incidente false positive</li>
-          </ul>
-          <ul data-en>
-            <li>List of public IPs, internal subnets and excluded systems</li>
-            <li>Internal access: VPN, jump box or physical presence on-site</li>
-            <li>Standard domain account for grey-box Active Directory testing</li>
-            <li>Approvals for scanning, controlled exploitation and lateral movement testing</li>
-            <li>Technical contact available for blockers, whitelisting and false-positive incidents</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-head">
-          <div class="price-service" data-ro>Aplicații mobile</div>
-          <div class="price-service" data-en>Mobile applications</div>
-          <div class="price-name" data-ro>Pentest Mobile</div>
-          <div class="price-name" data-en>Mobile Pentest</div>
-          <div class="price-range">€900 <span>–</span> €3.500</div>
-          <div class="price-from" data-ro>per platformă (iOS sau Android)</div>
-          <div class="price-from" data-en>per platform (iOS or Android)</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>Static + dynamic analysis</li>
-          <li data-en>Static + dynamic analysis</li>
-          <li data-ro>Reverse engineering APK/IPA</li>
-          <li data-en>APK/IPA reverse engineering</li>
-          <li data-ro>Testare stocare locală & trafic</li>
-          <li data-en>Local storage & traffic testing</li>
-          <li data-ro>API backend inclus</li>
-          <li data-en>Backend API included</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: backend complex, funcționalități financiare, ambele platforme</div>
-        <div class="price-scope" data-en>↑ Higher: complex backend, financial features, both platforms</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Build APK/IPA testabil, versiune exactă și changelog dacă există</li>
-            <li>Conturi de test, roluri diferite și date dummy pentru fluxuri reale</li>
-            <li>Acces la backend/API asociat și documentație pentru endpoint-uri</li>
-            <li>Device-uri cerute sau acord pentru testare pe device-urile noastre</li>
-            <li>Pentru iOS: TestFlight, Ad Hoc build sau acces controlat la aplicație</li>
-          </ul>
-          <ul data-en>
-            <li>Testable APK/IPA build, exact version and changelog if available</li>
-            <li>Test accounts, different roles and dummy data for realistic flows</li>
-            <li>Access to associated backend/API and endpoint documentation</li>
-            <li>Required devices or approval to test on our devices</li>
-            <li>For iOS: TestFlight, Ad Hoc build or controlled app access</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-head">
-          <div class="price-service" data-ro>Wireless — on-site</div>
-          <div class="price-service" data-en>Wireless — on-site</div>
-          <div class="price-name" data-ro>Securitate Wi-Fi</div>
-          <div class="price-name" data-en>Wi-Fi Security</div>
-          <div class="price-range">€400 <span>–</span> €1.500</div>
-          <div class="price-from" data-ro>per locație · deplasare inclusă local</div>
-          <div class="price-from" data-en>per location · local travel included</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>WPA2/3 cracking simulation</li>
-          <li data-en>WPA2/3 cracking simulation</li>
-          <li data-ro>Evil twin / rogue AP</li>
-          <li data-en>Evil twin / rogue AP</li>
-          <li data-ro>Izolare rețea guest & corp</li>
-          <li data-en>Guest & corp network isolation</li>
-          <li data-ro>Raport cu recomandări practice</li>
-          <li data-en>Report with practical recommendations</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: clădiri mari, multiple locații, deplasare în altă localitate</div>
-        <div class="price-scope" data-en>↑ Higher: large buildings, multiple locations, travel to another city</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Prezență fizică în locație și acces în zonele unde există acoperire Wi-Fi</li>
-            <li>Lista SSID-urilor, segmentarea guest/corporate și regulile de testare</li>
-            <li>Interval aprobat pentru teste care pot genera alerte sau deconectări</li>
-            <li>Persoană tehnică on-site pentru acces, escortă și validări rapide</li>
-            <li>Aprobări pentru test evil twin, rogue AP și verificare izolare rețea</li>
-          </ul>
-          <ul data-en>
-            <li>Physical presence on-site and access to areas with Wi-Fi coverage</li>
-            <li>List of SSIDs, guest/corporate segmentation and testing rules</li>
-            <li>Approved window for tests that may trigger alerts or disconnections</li>
-            <li>On-site technical contact for access, escort and quick validation</li>
-            <li>Approvals for evil twin, rogue AP and network isolation testing</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-head">
-          <div class="price-service" data-ro>Cod sursă</div>
-          <div class="price-service" data-en>Source code</div>
-          <div class="price-name" data-ro>Code Review</div>
-          <div class="price-name" data-en>Code Review</div>
-          <div class="price-range">€600 <span>–</span> €3.000</div>
-          <div class="price-from" data-ro>per proiect · în funcție de linii de cod</div>
-          <div class="price-from" data-en>per project · based on lines of code</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>Revizuire manuală + tooling SAST</li>
-          <li data-en>Manual review + SAST tooling</li>
-          <li data-ro>Logică, criptografie, config greșite</li>
-          <li data-en>Logic, cryptography, misconfigurations</li>
-          <li data-ro>Secrets hardcodate, injection points</li>
-          <li data-en>Hardcoded secrets, injection points</li>
-          <li data-ro>Raport cu linii exacte de cod</li>
-          <li data-en>Report with exact code lines</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: >50K LOC, limbaje multiple, arhitectură microservicii</div>
-        <div class="price-scope" data-en>↑ Higher: >50K LOC, multiple languages, microservices architecture</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Repository sau arhivă cu codul exact care intră în review</li>
-            <li>Instrucțiuni de build/run, variabile de mediu dummy și dependințe</li>
-            <li>Descriere arhitectură, roluri, fluxuri critice și zone sensibile</li>
-            <li>Acces read-only la issue tracker sau documentație, dacă există</li>
-            <li>Excluderi clare: librării externe, cod generat, module out-of-scope</li>
-          </ul>
-          <ul data-en>
-            <li>Repository or archive with the exact code included in review</li>
-            <li>Build/run instructions, dummy environment variables and dependencies</li>
-            <li>Architecture description, roles, critical flows and sensitive areas</li>
-            <li>Read-only access to issue tracker or documentation, if available</li>
-            <li>Clear exclusions: external libraries, generated code, out-of-scope modules</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-head">
-          <div class="price-service" data-ro>Monitorizare & factorul uman</div>
-          <div class="price-service" data-en>Monitoring & human factor</div>
-          <div class="price-name" data-ro>SOC + Phishing</div>
-          <div class="price-name" data-en>SOC + Phishing</div>
-          <div class="price-range">€300 <span>–</span> €800<span style="font-size:1.1rem">/lună</span></div>
-          <div class="price-from" data-ro>simulare unică sau abonament lunar</div>
-          <div class="price-from" data-en>one-time simulation or monthly retainer</div>
-          <div class="price-rate">€100/oră / persoană</div>
-        </div>
-        <div class="price-divider"></div>
-        <ul class="price-includes">
-          <li data-ro>Campanii phishing simulate complet</li>
-          <li data-en>Fully simulated phishing campaigns</li>
-          <li data-ro>Statistici detaliate per angajat</li>
-          <li data-en>Detailed per-employee statistics</li>
-          <li data-ro>SOC: monitorizare SIEM 24/7</li>
-          <li data-en>SOC: 24/7 SIEM monitoring</li>
-          <li data-ro>Alertare incidente în timp real</li>
-          <li data-en>Real-time incident alerting</li>
-        </ul>
-        <div class="price-scope" data-ro>↑ Mai scump: >100 angajați, SIEM custom, SLA garantat sub 1h</div>
-        <div class="price-scope" data-en>↑ Higher: >100 employees, custom SIEM, guaranteed SLA under 1h</div>
-        <div class="client-needs">
-          <div class="client-needs-title" data-ro>Necesar de la client</div>
-          <div class="client-needs-title" data-en>Client requirements</div>
-          <ul data-ro>
-            <li>Pentru phishing: domeniu aprobat, listă participanți și template-uri permise</li>
-            <li>Aprobări HR/management și reguli pentru comunicarea internă după campanie</li>
-            <li>Pentru SOC: surse de log, SIEM existent sau acces pentru integrare log-uri</li>
-            <li>Canale de alertare, persoane de gardă și praguri pentru escaladare</li>
-            <li>Scope lunar: sisteme monitorizate, SLA dorit și ferestre de mentenanță</li>
-          </ul>
-          <ul data-en>
-            <li>For phishing: approved domain, participant list and allowed templates</li>
-            <li>HR/management approvals and rules for internal communication after the campaign</li>
-            <li>For SOC: log sources, existing SIEM or access for log integration</li>
-            <li>Alerting channels, on-call contacts and escalation thresholds</li>
-            <li>Monthly scope: monitored systems, desired SLA and maintenance windows</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="scope-factors">
-      <div class="scope-title" data-ro>📊 Ce influențează prețul final</div>
-      <div class="scope-title" data-en>📊 What influences the final price</div>
-      <div class="scope-grid">
-        <div class="scope-item">
-          <div class="s-icon">📐</div>
-          <div class="s-label" data-ro>Dimensiunea scopului</div>
-          <div class="s-label" data-en>Scope size</div>
-          <div class="s-desc" data-ro>Mai multe sisteme sau aplicații = mai mult timp = preț mai mare</div>
-          <div class="s-desc" data-en>More systems or applications = more time = higher price</div>
-        </div>
-        <div class="scope-item">
-          <div class="s-icon">⚙️</div>
-          <div class="s-label" data-ro>Complexitate tehnică</div>
-          <div class="s-label" data-en>Technical complexity</div>
-          <div class="s-desc" data-ro>SSO, microservicii, arhitecturi hibride cresc efortul real</div>
-          <div class="s-desc" data-en>SSO, microservices, hybrid architectures increase real effort</div>
-        </div>
-        <div class="scope-item">
-          <div class="s-icon">🏢</div>
-          <div class="s-label" data-ro>Prezență fizică</div>
-          <div class="s-label" data-en>Physical presence</div>
-          <div class="s-desc" data-ro>Wi-Fi, social engineering on-site, audit fizic al clădirii</div>
-          <div class="s-desc" data-en>Wi-Fi, on-site social engineering, physical building audit</div>
-        </div>
-        <div class="scope-item">
-          <div class="s-icon">🔲</div>
-          <div class="s-label" data-ro>Metodologie</div>
-          <div class="s-label" data-en>Methodology</div>
-          <div class="s-desc" data-ro>Black box ia mai mult timp decât white box — reconnaissance din zero</div>
-          <div class="s-desc" data-en>Black box takes longer than white box — reconnaissance from scratch</div>
-        </div>
-        <div class="scope-item">
-          <div class="s-icon">⏱️</div>
-          <div class="s-label" data-ro>Urgență</div>
-          <div class="s-label" data-en>Urgency</div>
-          <div class="s-desc" data-ro>Livrare în sub 1 săptămână poate implica un tarif suplimentar</div>
-          <div class="s-desc" data-en>Delivery under 1 week may incur an additional fee</div>
-        </div>
-        <div class="scope-item">
-          <div class="s-icon">🔄</div>
-          <div class="s-label" data-ro>Abonament / retainer</div>
-          <div class="s-label" data-en>Retainer / subscription</div>
-          <div class="s-desc" data-ro>Testare recurentă sau SOC lunar — reduceri pentru parteneriate lungi</div>
-          <div class="s-desc" data-en>Recurring testing or monthly SOC — discounts for long-term partnerships</div>
-        </div>
       </div>
     </div>
   </div>
@@ -1257,102 +1081,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <p class="section-label" data-ro>Luați legătura</p>
-    <p class="section-label" data-en>Get in touch</p>
-    <h2 class="section-title" data-ro>Solicită o evaluare gratuită</h2>
-    <h2 class="section-title" data-en>Request a free assessment</h2>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p data-ro>Înainte de orice ofertă, discutăm 15–30 de minute despre ce aveți, ce vreți să testăm și care e bugetul aproximativ. Fără obligații, fără sales pitch.</p>
-        <p data-en>Before any quote, we have a 15–30 minute chat about what you have, what you want tested and what the rough budget is. No obligation, no sales pitch.</p>
-
-        <div class="contact-item">
-          <div class="ci-icon">✉️</div>
-          <span>contact@westsec.ro</span>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">📍</div>
-          <span data-ro>Timișoara, România</span>
-          <span data-en>Timișoara, Romania</span>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">🔒</div>
-          <span data-ro>Toate discuțiile sunt confidențiale — NDA disponibil la cerere</span>
-          <span data-en>All discussions are confidential — NDA available on request</span>
-        </div>
-
-        <div style="margin-top:2rem; padding:1.5rem; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg);">
-          <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.6rem;" data-ro>Răspundem în</div>
-          <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.6rem;" data-en>We respond within</div>
-          <div style="font-family:var(--font-head);font-size:2.2rem;font-weight:700;letter-spacing:-0.03em;color:var(--accent2);">24h</div>
-          <div style="font-size:0.82rem;color:var(--text3);margin-top:0.2rem;" data-ro>lucrătoare de la primirea mesajului</div>
-          <div style="font-size:0.82rem;color:var(--text3);margin-top:0.2rem;" data-en>business hours from receiving your message</div>
-        </div>
-      </div>
-
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label data-ro>Nume</label>
-            <label data-en>Name</label>
-            <input type="text" placeholder="Ion Popescu" />
-          </div>
-          <div class="form-group">
-            <label data-ro>Companie</label>
-            <label data-en>Company</label>
-            <input type="text" placeholder="Firma S.R.L." />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="ion@firma.ro" />
-        </div>
-        <div class="form-group">
-          <label data-ro>Serviciu de interes</label>
-          <label data-en>Service of interest</label>
-          <select>
-            <option value="" data-ro>Selectează...</option>
-            <option value="" data-en>Select...</option>
-            <option data-ro>Pentest Aplicație Web</option>
-            <option data-en>Web Application Pentest</option>
-            <option data-ro>Pentest Rețea / Infrastructură</option>
-            <option data-en>Network / Infrastructure Pentest</option>
-            <option data-ro>Securitate Active Directory</option>
-            <option data-en>Active Directory Security</option>
-            <option data-ro>Pentest Aplicație Mobile</option>
-            <option data-en>Mobile Application Pentest</option>
-            <option data-ro>Code Review</option>
-            <option data-en>Code Review</option>
-            <option data-ro>Securitate Wi-Fi (On-site)</option>
-            <option data-en>Wi-Fi Security (On-site)</option>
-            <option data-ro>Simulări Phishing</option>
-            <option data-en>Phishing Simulations</option>
-            <option data-ro>SOC Managed</option>
-            <option data-en>Managed SOC</option>
-            <option data-ro>Hardening & Blue Team</option>
-            <option data-en>Hardening & Blue Team</option>
-            <option data-ro>Răspuns la Incidente</option>
-            <option data-en>Incident Response</option>
-            <option data-ro>Dezvoltare Web</option>
-            <option data-en>Web Development</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-ro>Descriere scurtă</label>
-          <label data-en>Brief description</label>
-          <textarea data-ro-ph="Ce sisteme sau aplicații vreți să testăm? Orice detaliu ajută." data-en-ph="What systems or applications do you want tested? Any detail helps."></textarea>
-        </div>
-        <button class="form-submit" data-ro>Trimite mesajul →</button>
-        <button class="form-submit" data-en>Send message →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1362,7 +1090,6 @@
     <ul class="footer-links">
       <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
       <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </footer>
@@ -1377,17 +1104,7 @@
     document.title = isRo
       ? 'WestSec — Cybersecurity & Web Development'
       : 'WestSec — Securitate Cibernetică & Dezvoltare Web';
-    updatePlaceholders();
   }
-
-  function updatePlaceholders() {
-    const isEn = document.body.classList.contains('lang-en');
-    document.querySelectorAll('[data-ro-ph]').forEach(el => {
-      el.placeholder = isEn ? el.dataset.enPh : el.dataset.roPh;
-    });
-  }
-
-  updatePlaceholders();
 </script>
 </body>
 </html>
