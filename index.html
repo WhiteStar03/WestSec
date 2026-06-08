@@ -314,6 +314,40 @@
     margin-bottom: 0.6rem; letter-spacing: -0.01em;
   }
   .method-card p { font-size: 0.875rem; color: var(--text2); font-weight: 300; line-height: 1.65; }
+  .process-timeline {
+    position: relative; display: grid; gap: 1rem; margin-bottom: 3rem;
+  }
+  .process-timeline::before {
+    content: ''; position: absolute; top: 1.25rem; bottom: 1.25rem; left: 22px;
+    width: 1px; background: linear-gradient(to bottom, rgba(96,165,250,0.55), rgba(255,255,255,0.06));
+  }
+  .timeline-step {
+    position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .timeline-num {
+    position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg3); border: 1px solid rgba(96,165,250,0.28);
+    color: var(--accent2); font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+  }
+  .timeline-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 1.2rem 1.35rem;
+  }
+  .timeline-card h3 {
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    letter-spacing: -0.01em; margin-bottom: 0.4rem;
+  }
+  .timeline-card p { color: var(--text2); font-size: 0.88rem; line-height: 1.65; font-weight: 300; }
+  .timeline-card ul { list-style: none; margin-top: 0.75rem; display: grid; gap: 0.3rem; }
+  .timeline-card li {
+    color: var(--text2); font-size: 0.82rem; line-height: 1.45;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .timeline-card li::before {
+    content: '•'; color: var(--accent2); line-height: 1.35; flex-shrink: 0;
+  }
 
   /* PRICING */
   #preturi { background: var(--bg); }
@@ -1287,10 +1321,108 @@
   <div class="container">
     <p class="section-label" data-ro>Cum lucrăm</p>
     <p class="section-label" data-en>How we work</p>
-    <h2 class="section-title" data-ro>Metodologie clară, fără surprize</h2>
-    <h2 class="section-title" data-en>Clear methodology, no surprises</h2>
-    <p class="section-sub" data-ro>Fiecare angajament urmează același proces: scoping, execuție, raport tehnic + executiv, re-test după remediere. Știți exact ce se întâmplă la fiecare pas.</p>
-    <p class="section-sub" data-en>Every engagement follows the same process: scoping, execution, technical + executive report, re-test after remediation. You know exactly what happens at each step.</p>
+    <h2 class="section-title" data-ro>Proces clar, de la scoping la re-test</h2>
+    <h2 class="section-title" data-en>Clear process, from scoping to re-test</h2>
+    <p class="section-sub" data-ro>Fiecare angajament începe cu înțelegerea problemei și se încheie cu remediere verificată. Clientul știe ce testăm, ce nu testăm, ce riscuri există și ce primește la final.</p>
+    <p class="section-sub" data-en>Every engagement starts by understanding the problem and ends with verified remediation. The client knows what we test, what we exclude, what risks exist, and what they receive at the end.</p>
+
+    <div class="process-timeline">
+      <article class="timeline-step">
+        <div class="timeline-num">01</div>
+        <div class="timeline-card">
+          <h3 data-ro>Discuție inițială de discovery</h3>
+          <h3 data-en>Initial discovery call</h3>
+          <p data-ro>Înțelegem problema clientului, obiectivele, contextul de business și suprafața aproximativă de atac.</p>
+          <p data-en>We understand the client's problem, goals, business context, and rough attack surface.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">02</div>
+        <div class="timeline-card">
+          <h3 data-ro>Chestionar de pre-scoping</h3>
+          <h3 data-en>Pre-scope questionnaire</h3>
+          <p data-ro>Trimitem un formular sau o listă specifică serviciului. Pentru securitate wireless, de exemplu, cerem detalii despre routere, switch-uri, access point-uri, IoT, locații, diagrame de rețea, credențiale unde e nevoie și constrângeri operaționale.</p>
+          <p data-en>We send a service-specific form or checklist. For wireless security, for example, we ask for routers, switches, access points, IoT devices, locations, network diagrams, credentials where needed, and operational constraints.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">03</div>
+        <div class="timeline-card">
+          <h3 data-ro>Definirea scope-ului</h3>
+          <h3 data-en>Scope definition</h3>
+          <p data-ro>Analizăm informațiile și stabilim clar ce intră în testare, ce este exclus, metodele de testare, durata estimată, riscurile și cerințele necesare.</p>
+          <p data-en>We review the information and clearly define what will be tested, what is excluded, testing methods, estimated duration, risks, and requirements.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">04</div>
+        <div class="timeline-card">
+          <h3 data-ro>Recomandare serviciu & ofertă</h3>
+          <h3 data-en>Service recommendation & proposal</h3>
+          <p data-ro>Pe baza scope-ului recomandăm pachetul potrivit: evaluare wireless, pentest rețea, pentest aplicație web, simulare red team, hardening, monitorizare sau o combinație între ele.</p>
+          <p data-en>Based on the scope, we recommend the right package: wireless assessment, network pentest, web app pentest, red team simulation, hardening, monitoring, or a combination.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">05</div>
+        <div class="timeline-card">
+          <h3 data-ro>Acord legal / contract</h3>
+          <h3 data-en>Legal agreement / contract</h3>
+          <p data-ro>Semnăm contractul, NDA dacă este necesar, regulile de angajament, autorizarea de testare, prețul, calendarul și livrabilele.</p>
+          <p data-en>We sign the contract, NDA if needed, rules of engagement, authorization to test, pricing, timeline, and deliverables.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">06</div>
+        <div class="timeline-card">
+          <h3 data-ro>Execuție</h3>
+          <h3 data-en>Execution</h3>
+          <p data-ro>Realizăm evaluarea conform scope-ului agreat, cu testare manuală, documentare pe parcurs și comunicare pentru situațiile care necesită decizie rapidă.</p>
+          <p data-en>We perform the assessment according to the agreed scope, with manual testing, ongoing documentation, and communication for cases that need a quick decision.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">07</div>
+        <div class="timeline-card">
+          <h3 data-ro>Raportare</h3>
+          <h3 data-en>Reporting</h3>
+          <p data-ro>Livrăm un raport structurat pentru decizie și remediere.</p>
+          <p data-en>We deliver a structured report for decision-making and remediation.</p>
+          <ul data-ro>
+            <li>sumar executiv</li>
+            <li>constatări tehnice</li>
+            <li>rating de risc</li>
+            <li>proof of concept</li>
+            <li>pași de remediere</li>
+          </ul>
+          <ul data-en>
+            <li>executive summary</li>
+            <li>technical findings</li>
+            <li>risk ratings</li>
+            <li>proof of concept</li>
+            <li>remediation steps</li>
+          </ul>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">08</div>
+        <div class="timeline-card">
+          <h3 data-ro>Call de debrief</h3>
+          <h3 data-en>Debrief call</h3>
+          <p data-ro>Parcurgem constatările cu clientul, explicăm impactul real și răspundem la întrebări tehnice sau de business.</p>
+          <p data-en>We walk the client through the findings, explain the real impact, and answer technical or business questions.</p>
+        </div>
+      </article>
+      <article class="timeline-step">
+        <div class="timeline-num">09</div>
+        <div class="timeline-card">
+          <h3 data-ro>Re-testare / follow-up</h3>
+          <h3 data-en>Retesting / follow-up</h3>
+          <p data-ro>După remediere, verificăm dacă problemele au fost rezolvate și putem recomanda monitorizare, mentenanță sau testare recurentă.</p>
+          <p data-en>After remediation, we verify that the issues were fixed and can recommend monitoring, maintenance, or recurring testing.</p>
+        </div>
+      </article>
+    </div>
 
     <div class="method-grid">
       <div class="method-card">
