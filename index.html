@@ -268,6 +268,7 @@
   .pill-red { background: var(--red-dim); color: #f87171; border: 1px solid var(--red-border); }
   .pill-blue { background: var(--accent-dim); color: var(--accent2); border: 1px solid rgba(59,130,246,0.2); }
   .pill-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  .pill-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
   .services-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1px; background: var(--border);
@@ -500,8 +501,8 @@
   <h1 data-ro>Testăm<br />sistemele tale<br />înainte să o<br />facă <em>hackerii</em></h1>
   <h1 data-en>We test your<br />systems<br />before the<br /><em>hackers</em> do</h1>
 
-  <p data-ro>Atac, apărare și monitorizare - servicii reale pentru firme care vor să știe unde sunt vulnerabile, nu doar să bifeze o căsuță.</p>
-  <p data-en>Offense, defense and monitoring - real services for companies that want to know where they're vulnerable, not just check a box.</p>
+  <p data-ro>Atac, apărare și monitorizare - servicii reale pentru firme și locuințe care vor să știe unde sunt vulnerabile, nu doar să bifeze o căsuță.</p>
+  <p data-en>Offense, defense and monitoring - real services for companies and homes that want to know where they're vulnerable, not just check a box.</p>
 
   <div class="hero-actions">
     <a href="#servicii" class="btn-primary">
@@ -529,6 +530,7 @@
         <li>Pentest rețea internă & externă</li>
         <li>Securitate Active Directory</li>
         <li>Securitate Wi-Fi (on-site)</li>
+        <li>Securitate locuință, IoT & rețea home</li>
         <li>Code review (sursă)</li>
         <li>Black box / Grey box / White box</li>
       </ul>
@@ -538,6 +540,7 @@
         <li>Internal & external network pentest</li>
         <li>Active Directory security</li>
         <li>Wi-Fi security (on-site)</li>
+        <li>Home security, IoT & home networks</li>
         <li>Source code review</li>
         <li>Black box / Grey box / White box</li>
       </ul>
@@ -789,6 +792,50 @@
         </div>
       </div>
 
+      <div class="price-card" style="border-top:3px solid #10b981">
+        <div class="price-card-head">
+          <div class="price-service" data-ro>Locuințe & IoT</div>
+          <div class="price-service" data-en>Homes & IoT</div>
+          <div class="price-name" data-ro>Securitate Home / IoT</div>
+          <div class="price-name" data-en>Home / IoT Security</div>
+          <div class="price-range">€250 <span>–</span> €1.200</div>
+          <div class="price-from" data-ro>per locuință · audit fizic + rețea</div>
+          <div class="price-from" data-en>per home · physical + network audit</div>
+          <div class="price-rate">€100/oră / persoană</div>
+        </div>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li data-ro>Audit acces fizic: uși, ferestre, interfon, camere, yale smart</li>
+          <li data-en>Physical access audit: doors, windows, intercom, cameras, smart locks</li>
+          <li data-ro>Verificare router, Wi-Fi, NAS, camere IP și device-uri IoT</li>
+          <li data-en>Router, Wi-Fi, NAS, IP cameras and IoT device checks</li>
+          <li data-ro>Testare segmentare rețea home / guest / IoT</li>
+          <li data-en>Home / guest / IoT network segmentation testing</li>
+          <li data-ro>Plan practic de remediere pentru locuință</li>
+          <li data-en>Practical home remediation plan</li>
+        </ul>
+        <div class="price-scope" data-ro>↑ Mai scump: case mari, multe device-uri IoT, camere/NAS expuse, mai multe locații</div>
+        <div class="price-scope" data-en>↑ Higher: large homes, many IoT devices, exposed cameras/NAS, multiple locations</div>
+        <div class="client-needs">
+          <div class="client-needs-title" data-ro>Necesar de la client</div>
+          <div class="client-needs-title" data-en>Client requirements</div>
+          <ul data-ro>
+            <li>Acces fizic autorizat în locuință și lista zonelor care pot fi verificate</li>
+            <li>Lista device-urilor smart: camere, yale, senzori, interfon, NAS, routere</li>
+            <li>Acces admin la router, aplicații IoT și conturile de management relevante</li>
+            <li>Interval aprobat pentru teste Wi-Fi și verificări care pot genera alerte</li>
+            <li>Reguli clare pentru ce nu se testează sau nu se atinge</li>
+          </ul>
+          <ul data-en>
+            <li>Authorized physical access to the home and list of areas that can be checked</li>
+            <li>List of smart devices: cameras, locks, sensors, intercom, NAS, routers</li>
+            <li>Admin access to the router, IoT apps and relevant management accounts</li>
+            <li>Approved window for Wi-Fi tests and checks that may trigger alerts</li>
+            <li>Clear rules for what must not be tested or touched</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="price-card" style="border-top:3px solid #3b82f6">
         <div class="price-card-head">
           <div class="price-service" data-ro>Cod sursă</div>
@@ -960,6 +1007,13 @@
           <div class="s-desc" data-en>Wi-Fi, on-site social engineering, physical building audit</div>
         </div>
         <div class="scope-item">
+          <div class="s-icon">🏠</div>
+          <div class="s-label" data-ro>Locuințe & IoT</div>
+          <div class="s-label" data-en>Homes & IoT</div>
+          <div class="s-desc" data-ro>Routere, camere, yale smart, interfoane, NAS și segmentare rețea home</div>
+          <div class="s-desc" data-en>Routers, cameras, smart locks, intercoms, NAS and home network segmentation</div>
+        </div>
+        <div class="scope-item">
           <div class="s-icon">🔲</div>
           <div class="s-label" data-ro>Metodologie</div>
           <div class="s-label" data-en>Methodology</div>
@@ -1007,7 +1061,8 @@
           <h3 data-ro>Pentest Aplicații Web</h3>
           <h3 data-en>Web Application Pentest</h3>
           <p data-ro>Atacăm controlat portalurile, magazinele online sau platformele interne. SQL injection, XSS, IDOR, broken auth, business logic - tot ce un hacker real ar căuta.</p>
-          <p data-en>We perform controlled attacks on portals, online stores, and internal platforms. SQL injection, XSS, IDOR, broken authentication, business logic flaws - everything a real attacker would look for.</p>            <div class="tag-row">
+          <p data-en>We perform controlled attacks on portals, online stores, and internal platforms. SQL injection, XSS, IDOR, broken authentication, business logic flaws - everything a real attacker would look for.</p>
+          <div class="tag-row">
             <span class="tag tag-red">Black Box</span>
             <span class="tag tag-amber">Grey Box</span>
             <span class="tag tag-blue">API testing</span>
@@ -1081,6 +1136,41 @@
             <span class="tag tag-red">Physical</span>
             <span class="tag tag-red">AD Takeover</span>
             <span class="tag tag-amber">Custom scope</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Security -->
+    <div class="services-group">
+      <div class="group-title">
+        <span data-ro>Securitate pentru locuințe</span>
+        <span data-en>Home security</span>
+        <span class="group-pill pill-green">Home / IoT</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3 data-ro>Securitate Fizică Home</h3>
+          <h3 data-en>Home Physical Security</h3>
+          <p data-ro>Evaluăm controlat riscurile fizice ale locuinței: acces uși și ferestre, interfon, camere, yale smart, poziționare senzori și zone ușor de ocolit.</p>
+          <p data-en>We assess physical home risks in a controlled way: door and window access, intercom, cameras, smart locks, sensor placement and areas that are easy to bypass.</p>
+          <div class="tag-row">
+            <span class="tag tag-green">Physical audit</span>
+            <span class="tag tag-amber">On-site</span>
+            <span class="tag tag-blue">Remediation plan</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📶</div>
+          <h3 data-ro>Rețea Home & IoT</h3>
+          <h3 data-en>Home Network & IoT</h3>
+          <p data-ro>Verificăm routerul, Wi-Fi-ul, camerele IP, NAS-ul și device-urile smart. Separăm device-urile IoT de laptopuri și telefoane, închidem expunerile inutile.</p>
+          <p data-en>We check the router, Wi-Fi, IP cameras, NAS and smart devices. We separate IoT devices from laptops and phones, and close unnecessary exposure.</p>
+          <div class="tag-row">
+            <span class="tag tag-green">IoT</span>
+            <span class="tag tag-blue">Network</span>
+            <span class="tag tag-red">Exposed devices</span>
           </div>
         </div>
       </div>
