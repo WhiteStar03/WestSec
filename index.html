@@ -477,8 +477,8 @@
     background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(59,130,246,0.08));
   }
   .team-card h3 {
-    font-family: var(--font-head); font-size: 0.98rem; font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: var(--font-head); font-size: 0.94rem; font-weight: 700;
+    letter-spacing: 0; white-space: nowrap;
   }
 
   /* WEB DEV */
@@ -532,6 +532,7 @@
     .hero-svc-col { padding: 1.35rem; }
     .hero-svc-items li { font-size: 0.9rem; }
     .hero-price-strip .hero-price-item { min-width: 130px; }
+    .team-card h3 { white-space: normal; }
   }
 </style>
 </head>
@@ -1564,6 +1565,11 @@
       <article class="team-card">
         <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/AmonRa.jpg" width="512" height="512" loading="lazy" alt="Ramon Mateas" />
         <h3>Ramon Mateas</h3>
+      </article>
+
+      <article class="team-card">
+        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/catalin.jpg" width="512" height="512" loading="lazy" alt="Catalin Chirita" />
+        <h3>Catalin Chirita</h3>
       </article>
     </div>
   </div>
