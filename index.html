@@ -425,41 +425,26 @@
   /* TEAM */
   #team { background: var(--bg); }
   .team-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem; margin-top: 2rem;
   }
   .team-card {
-    background: var(--bg2); padding: 1.4rem;
-    min-height: 100%; transition: background 0.2s;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem;
+    text-align: center; transition: border-color 0.2s, background 0.2s;
   }
-  .team-card:hover { background: var(--bg3); }
+  .team-card:hover { background: var(--bg3); border-color: var(--border2); }
   .team-photo {
-    width: 100%; aspect-ratio: 1 / 1; border-radius: 10px;
-    object-fit: cover; display: block; margin-bottom: 1rem;
+    width: 108px; height: 108px; border-radius: 50%;
+    object-fit: cover; display: block; margin: 0 auto 0.85rem;
     border: 1px solid var(--border2); background: var(--bg3);
   }
   .team-photo-placeholder {
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 3rem; color: var(--green);
     background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(59,130,246,0.08));
   }
-  .team-handle {
-    font-family: var(--font-head); font-size: 0.75rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2);
-    margin-bottom: 0.25rem;
-  }
   .team-card h3 {
-    font-family: var(--font-head); font-size: 1rem; font-weight: 700;
-    letter-spacing: -0.01em; margin-bottom: 0.4rem;
-  }
-  .team-role { font-size: 0.82rem; color: var(--text2); line-height: 1.5; font-weight: 300; margin-bottom: 0.8rem; }
-  .team-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .team-tags span {
-    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--text3);
-    padding: 3px 8px; border: 1px solid var(--border); border-radius: 100px;
-    background: rgba(255,255,255,0.025);
+    font-family: var(--font-head); font-size: 0.98rem; font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   /* WEB DEV */
@@ -524,8 +509,8 @@
     <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
     <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
     <li><a href="#metodologie" data-ro>Metodologie</a><a href="#metodologie" data-en>Methodology</a></li>
-    <li><a href="#team" data-ro>Echipă</a><a href="#team" data-en>Team</a></li>
     <li><a href="#webdev">Web Dev</a></li>
+    <li><a href="#team">Team</a></li>
   </ul>
   <div class="nav-right">
     <button class="btn-lang" onclick="toggleLang()">EN / RO</button>
@@ -1354,79 +1339,6 @@
   </div>
 </section>
 
-<section id="team">
-  <div class="container">
-    <p class="section-label" data-ro>Meet the Team</p>
-    <p class="section-label" data-en>Meet the Team</p>
-    <h2 class="section-title" data-ro>Echipa WestSec</h2>
-    <h2 class="section-title" data-en>WestSec Team</h2>
-    <p class="section-sub" data-ro>Oameni din comunitatea UVT-CTF, cu experiență practică în web, pwn, reverse engineering, crypto și securitate aplicată.</p>
-    <p class="section-sub" data-en>People from the UVT-CTF community, with hands-on experience in web, pwn, reverse engineering, crypto and applied security.</p>
-
-    <div class="team-grid">
-      <article class="team-card">
-        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Paul.jpg" width="504" height="504" loading="lazy" alt="Paul Valase - skyv3il" />
-        <div class="team-handle">skyv3il</div>
-        <h3>Paul Valase</h3>
-        <p class="team-role" data-ro>Team Leader UVT-CTF · Web</p>
-        <p class="team-role" data-en>UVT-CTF Team Leader · Web</p>
-        <div class="team-tags">
-          <span>Web</span>
-          <span>Graduate</span>
-        </div>
-      </article>
-
-      <article class="team-card">
-        <div class="team-photo team-photo-placeholder" aria-hidden="true">AB</div>
-        <div class="team-handle">MrProper</div>
-        <h3>Alin Bosnea</h3>
-        <p class="team-role" data-ro>Membru UVT-CTF din 2023 · Web / Steg</p>
-        <p class="team-role" data-en>UVT-CTF member since 2023 · Web / Steg</p>
-        <div class="team-tags">
-          <span>Web</span>
-          <span>Steg</span>
-        </div>
-      </article>
-
-      <article class="team-card">
-        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Mark.jpg" width="648" height="648" loading="lazy" alt="Mark Dragota - Mark" />
-        <div class="team-handle">Mark</div>
-        <h3>Mark Dragota</h3>
-        <p class="team-role" data-ro>Membru UVT-CTF din 2023 · Crypto / Rev</p>
-        <p class="team-role" data-en>UVT-CTF member since 2023 · Crypto / Rev</p>
-        <div class="team-tags">
-          <span>Crypto</span>
-          <span>Rev</span>
-        </div>
-      </article>
-
-      <article class="team-card">
-        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Elias.png" width="1024" height="1024" loading="lazy" alt="Elias Bota - Abcjr" />
-        <div class="team-handle">Abcjr</div>
-        <h3>Elias Bota</h3>
-        <p class="team-role" data-ro>Membru UVT-CTF din 2025 · Web / Rev</p>
-        <p class="team-role" data-en>UVT-CTF member since 2025 · Web / Rev</p>
-        <div class="team-tags">
-          <span>Web</span>
-          <span>Rev</span>
-        </div>
-      </article>
-
-      <article class="team-card">
-        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/AmonRa.jpg" width="512" height="512" loading="lazy" alt="Ramon Mateas - AmonRa" />
-        <div class="team-handle">AmonRa</div>
-        <h3>Ramon Mateas</h3>
-        <p class="team-role" data-ro>Membru UVT-CTF din 2023 · Web / Pwn</p>
-        <p class="team-role" data-en>UVT-CTF member since 2023 · Web / Pwn</p>
-        <div class="team-tags">
-          <span>Web</span>
-          <span>Pwn</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section id="webdev">
   <div class="container">
     <p class="section-label" data-ro>Servicii complementare</p>
@@ -1491,6 +1403,40 @@
   </div>
 </section>
 
+<section id="team">
+  <div class="container">
+    <p class="section-label">Meet the Team</p>
+    <h2 class="section-title">Team</h2>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Paul.jpg" width="504" height="504" loading="lazy" alt="Paul Valase" />
+        <h3>Paul Valase</h3>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo team-photo-placeholder" aria-hidden="true"></div>
+        <h3>Alin Bosnea</h3>
+      </article>
+
+      <article class="team-card">
+        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Mark.jpg" width="648" height="648" loading="lazy" alt="Mark Dragota" />
+        <h3>Mark Dragota</h3>
+      </article>
+
+      <article class="team-card">
+        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/Elias.png" width="1024" height="1024" loading="lazy" alt="Elias Bota" />
+        <h3>Elias Bota</h3>
+      </article>
+
+      <article class="team-card">
+        <img class="team-photo" src="https://cybersec.uvt.ro/assets/team/AmonRa.jpg" width="512" height="512" loading="lazy" alt="Ramon Mateas" />
+        <h3>Ramon Mateas</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-logo"><span></span>WestSec</div>
@@ -1499,7 +1445,7 @@
     <ul class="footer-links">
       <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
       <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
-      <li><a href="#team" data-ro>Echipă</a><a href="#team" data-en>Team</a></li>
+      <li><a href="#team">Team</a></li>
     </ul>
   </div>
 </footer>
