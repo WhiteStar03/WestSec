@@ -448,6 +448,30 @@
     content: '•'; color: var(--accent2); line-height: 1.35; flex-shrink: 0;
   }
 
+  /* QUESTIONNAIRE */
+  #chestionar { background: var(--bg2); }
+  .questionnaire-panel {
+    display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 2rem; align-items: center;
+    background: var(--bg3); border: 1px solid rgba(59,130,246,0.22);
+    border-radius: var(--radius-lg); padding: 2rem;
+  }
+  .questionnaire-copy .section-sub { margin-bottom: 0; max-width: 640px; }
+  .questionnaire-actions {
+    display: flex; flex-direction: column; gap: 0.85rem;
+    align-items: stretch; justify-content: center;
+  }
+  .questionnaire-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 12px 18px; border-radius: 9px;
+    background: var(--accent); color: #fff; font-size: 0.92rem; font-weight: 700;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .questionnaire-link:hover { opacity: 0.88; transform: translateY(-1px); }
+  .questionnaire-note {
+    color: var(--text3); font-size: 0.78rem; line-height: 1.55; text-align: center;
+  }
+
   /* SCOPE FACTORS */
   .scope-factors {
     background: var(--bg2); border: 1px solid var(--border);
@@ -527,6 +551,7 @@
     .hero-svc-col { border-bottom: 1px solid var(--border); }
     .hero-svc-col:last-child { border-bottom: none; }
     .method-grid { grid-template-columns: 1fr 1fr; }
+    .questionnaire-panel { grid-template-columns: 1fr; }
   }
   @media (max-width: 768px) {
     nav { padding: 0 1.25rem; }
@@ -551,6 +576,7 @@
     <li><a href="#servicii" data-ro>Servicii</a><a href="#servicii" data-en>Services</a></li>
     <li><a href="#preturi" data-ro>Prețuri</a><a href="#preturi" data-en>Pricing</a></li>
     <li><a href="#metodologie" data-ro>Metodologie</a><a href="#metodologie" data-en>Methodology</a></li>
+    <li><a href="#chestionar" data-ro>Chestionar</a><a href="#chestionar" data-en>Questionnaire</a></li>
     <li><a href="#webdev">Web Dev</a></li>
     <li><a href="#team">Team</a></li>
   </ul>
@@ -580,6 +606,10 @@
     <a href="#preturi" class="btn-secondary">
       <span data-ro>Vezi prețurile</span>
       <span data-en>View pricing</span>
+    </a>
+    <a href="https://enterprise-pentest-scope.alintinu45.workers.dev/" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+      <span data-ro>Chestionar pentest</span>
+      <span data-en>Pentest questionnaire</span>
     </a>
   </div>
 
@@ -724,6 +754,10 @@
             <li>API documentation, critical business flows and known limitations</li>
           </ul>
         </div>
+        <a class="service-cta" href="https://enterprise-pentest-scope.alintinu45.workers.dev/" target="_blank" rel="noopener noreferrer">
+          <span data-ro>Completează chestionarul</span>
+          <span data-en>Complete questionnaire</span>
+        </a>
       </div>
 
       <div class="price-card featured" style="border-top:3px solid #ef4444">
@@ -770,6 +804,10 @@
             <li>Technical contact available for blockers, whitelisting and false-positive incidents</li>
           </ul>
         </div>
+        <a class="service-cta" href="https://enterprise-pentest-scope.alintinu45.workers.dev/" target="_blank" rel="noopener noreferrer">
+          <span data-ro>Completează chestionarul</span>
+          <span data-en>Complete questionnaire</span>
+        </a>
       </div>
 
       <div class="price-card" style="border-top:3px solid #ef4444">
@@ -1110,6 +1148,27 @@
           <div class="s-desc" data-ro>Testare recurentă sau SOC lunar - reduceri pentru parteneriate lungi</div>
           <div class="s-desc" data-en>Recurring testing or monthly SOC - discounts for long-term partnerships</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chestionar">
+  <div class="container">
+    <div class="questionnaire-panel">
+      <div class="questionnaire-copy">
+        <p class="section-label" data-ro>Scoping rapid</p>
+        <p class="section-label" data-en>Fast scoping</p>
+        <h2 class="section-title" data-ro>Chestionar pentru Pentest Web și Rețea</h2>
+        <h2 class="section-title" data-en>Web and Network Pentest Questionnaire</h2>
+        <p class="section-sub" data-ro>Completează formularul pentru aplicații web, API-uri, infrastructură externă sau rețea internă. Informațiile ne ajută să estimăm corect durata, riscurile, accesul necesar și oferta finală.</p>
+        <p class="section-sub" data-en>Fill in the form for web applications, APIs, external infrastructure or internal networks. The details help us estimate duration, risk, required access and the final quote accurately.</p>
+      </div>
+      <div class="questionnaire-actions">
+        <a class="questionnaire-link" href="https://enterprise-pentest-scope.alintinu45.workers.dev/" target="_blank" rel="noopener noreferrer">
+          <span data-ro>Deschide chestionarul</span>
+          <span data-en>Open questionnaire</span>
+        </a>
       </div>
     </div>
   </div>
